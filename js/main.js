@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             try {
 // Send to Google Sheets
-            const response = await fetch('DIN-GOOGLE-APPS-SCRIPT-URL-HÄR', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
