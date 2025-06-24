@@ -131,17 +131,13 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 // In a real implementation, you would send this to your server
                 // For example:
-const response = await fetch('https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData)
-});
-
-if (!response.ok) {
-    throw new Error('Failed to submit registration');
-}
+                // const response = await fetch('/api/register', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(formData)
+                // });
                 
                 // Simulate API call
                 await new Promise(resolve => setTimeout(resolve, 1500));
@@ -311,25 +307,25 @@ if (!response.ok) {
 // Google Sheets Integration Example
 // Uncomment and modify this function if you want to use Google Sheets
 
-async function submitToGoogleSheets(formData) {
-    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec';
+// async function submitToGoogleSheets(formData) {
+//     const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec';
     
-    try {
-        const response = await fetch(GOOGLE_SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
+//     try {
+//         const response = await fetch(GOOGLE_SHEETS_URL, {
+//             method: 'POST',
+//             mode: 'no-cors',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(formData)
+//         });
         
-        return true;
-    } catch (error) {
-        console.error('Error submitting to Google Sheets:', error);
-        return false;
-    }
-}
+//         return true;
+//     } catch (error) {
+//         console.error('Error submitting to Google Sheets:', error);
+//         return false;
+//     }
+// }
 
 // Mailchimp Integration Example
 // Uncomment and modify this function if you want to use Mailchimp
