@@ -306,9 +306,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Google Sheets Integration Example
 // Uncomment and modify this function if you want to use Google Sheets
-/*
+
 async function submitToGoogleSheets(formData) {
-    const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec';
     
     try {
         const response = await fetch(GOOGLE_SHEETS_URL, {
@@ -326,7 +326,6 @@ async function submitToGoogleSheets(formData) {
         return false;
     }
 }
-*/
 
 // Mailchimp Integration Example
 // Uncomment and modify this function if you want to use Mailchimp
