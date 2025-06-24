@@ -131,13 +131,17 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 // In a real implementation, you would send this to your server
                 // For example:
-                // const response = await fetch('/api/register', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //     },
-                //     body: JSON.stringify(formData)
-                // });
+const response = await fetch('https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
+});
+
+if (!response.ok) {
+    throw new Error('Failed to submit registration');
+}
                 
                 // Simulate API call
                 await new Promise(resolve => setTimeout(resolve, 1500));
