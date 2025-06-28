@@ -1,633 +1,53 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Westcoast BJJ Camp - Experience world-class Brazilian Jiu-Jitsu training by the Swedish coast in beautiful Strömstad. July 15-21, 2025.">
+    <meta name="keywords" content="BJJ, Brazilian Jiu Jitsu, Sweden, Strömstad, martial arts camp, summer camp">
+    <meta name="author" content="Westcoast BJJ Camp">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://westcoastbjjcamp.se/">
+    <meta property="og:title" content="Westcoast BJJ Camp - Summer Training in Strömstad">
+    <meta property="og:description" content="Join us for an unforgettable week of BJJ training by the Swedish coast. All levels welcome!">
+    <meta property="og:image" content="images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://westcoastbjjcamp.se/">
+    <meta property="twitter:title" content="Westcoast BJJ Camp - Summer Training in Strömstad">
+    <meta property="twitter:description" content="Join us for an unforgettable week of BJJ training by the Swedish coast. All levels welcome!">
+    <meta property="twitter:image" content="images/og-image.jpg">
+
     <title>Westcoast BJJ Camp - Summer Training in Strömstad, Sweden</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-blue: #2563eb;
-            --light-blue: #dbeafe;
-            --dark-blue: #1e40af;
-            --white: #ffffff;
-            --gray-light: #f3f4f6;
-            --gray-medium: #6b7280;
-            --gray-dark: #1f2937;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--gray-dark);
-            background: var(--white);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        .register-btn {
-            background: var(--primary-blue);
-            color: white !important;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .register-btn:hover {
-            background: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), 
-                        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzNiODJmNjtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxZDRlZDg7c3RvcC1vcGFjaXR5OjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjMwMCIgcj0iMzAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48Y2lyY2xlIGN4PSIxNzAwIiBjeT0iODAwIiByPSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: white;
-            color: var(--primary-blue);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--gray-dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--gray-medium);
-            margin-top: -2rem;
-            margin-bottom: 3rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--gray-light);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .about-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Schedule Section */
-        .schedule-container {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            overflow-x: auto;
-        }
-
-        .schedule-day {
-            margin-bottom: 2rem;
-        }
-
-        .schedule-day h3 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .schedule-item {
-            display: flex;
-            padding: 1rem;
-            border-left: 4px solid var(--primary-blue);
-            margin-bottom: 1rem;
-            background: var(--gray-light);
-            border-radius: 0 10px 10px 0;
-        }
-
-        .schedule-time {
-            font-weight: bold;
-            color: var(--primary-blue);
-            min-width: 120px;
-        }
-
-        /* Instructors */
-        .instructors {
-            background: var(--gray-light);
-        }
-
-        .instructor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .instructor-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .instructor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .instructor-image {
-            height: 300px;
-            background: linear-gradient(45deg, var(--primary-blue), var(--dark-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-        }
-
-        .instructor-info {
-            padding: 1.5rem;
-        }
-
-        .instructor-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .instructor-rank {
-            color: var(--primary-blue);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Pricing */
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card.featured {
-            border: 3px solid var(--primary-blue);
-            transform: scale(1.05);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-            margin: 1rem 0;
-        }
-
-        .price-currency {
-            font-size: 1.5rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .pricing-features li {
-            padding: 0.5rem 0;
-            color: var(--gray-medium);
-        }
-
-        .pricing-features li::before {
-            content: "✓ ";
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-
-        /* Gallery */
-        .gallery {
-            background: var(--gray-light);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            height: 250px;
-            background: linear-gradient(45deg, var(--primary-blue), var(--dark-blue));
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Registration Form */
-        .registration-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--gray-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* FAQ */
-        .faq {
-            background: var(--gray-light);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: var(--gray-light);
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            max-height: 500px;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-info h3 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .map-container {
-            background: white;
-            padding: 1rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-medium);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gray-dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-blue);
-            transform: translateY(-3px);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-        }
-
-        /* Utility Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">⚔️ Westcoast BJJ</a>
-            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            <a href="#" class="logo">
+                <img src="images/logo.svg" alt="Westcoast BJJ Camp" width="40" height="40">
+                <span>Westcoast BJJ</span>
+            </a>
+            <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -643,10 +63,13 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-background">
+            <img src="images/hero-bg.jpg" alt="BJJ training by the Swedish coast" loading="eager">
+        </div>
         <div class="hero-content">
             <h1>Westcoast BJJ Camp</h1>
             <p class="hero-subtitle">Train by the Swedish Coast in Beautiful Strömstad</p>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">July 15-21, 2025</p>
+            <p class="hero-date">July 15-21, 2025</p>
             <a href="#register" class="cta-button">Sign Up Now</a>
         </div>
     </section>
@@ -659,34 +82,32 @@
             
             <div class="about-grid">
                 <div class="about-card fade-in">
-                    <div class="about-icon">🏖️</div>
+                    <div class="about-icon">
+                        <img src="images/icons/location.svg" alt="Location" width="48" height="48">
+                    </div>
                     <h3>Perfect Location</h3>
                     <p>Located in beautiful Strömstad on Sweden's west coast, enjoy training with ocean views and fresh sea air.</p>
                 </div>
                 <div class="about-card fade-in">
-                    <div class="about-icon">🥋</div>
+                    <div class="about-icon">
+                        <img src="images/icons/belt.svg" alt="All levels" width="48" height="48">
+                    </div>
                     <h3>All Levels Welcome</h3>
                     <p>From white belts to black belts, our camp offers tailored instruction for every skill level.</p>
                 </div>
                 <div class="about-card fade-in">
-                    <div class="about-icon">🏠</div>
+                    <div class="about-icon">
+                        <img src="images/icons/home.svg" alt="All inclusive" width="48" height="48">
+                    </div>
                     <h3>All Inclusive</h3>
                     <p>Training, accommodation, and healthy meals included. Just bring your gear and passion for BJJ!</p>
                 </div>
-<<<<<<< HEAD
                 <div class="about-card fade-in">
-                    <div class="about-icon">🤝</div>
+                    <div class="about-icon">
+                        <img src="images/icons/community.svg" alt="Community" width="48" height="48">
+                    </div>
                     <h3>Community</h3>
                     <p>Connect with BJJ practitioners from around the world in a supportive, friendly environment.</p>
-=======
-                <div class="overview-card fade-in">
-                    <div class="overview-icon">
-                        <img src="./images/icons/community.svg" alt="Community icon" width="48" height="48">
-                    </div>
-                    <h3>Global gemenskap</h3>
-                    <p>Knyt kontakt med BJJ-utövare från hela världen.</p>
-                    <a href="./gallery.html" class="card-link">Se galleri →</a>
->>>>>>> 9f4afb9abccffa97b431717d7b0d6ae239d6445d
                 </div>
             </div>
         </div>
@@ -746,26 +167,32 @@
             
             <div class="instructor-grid">
                 <div class="instructor-card fade-in">
-                    <div class="instructor-image">👨‍🏫</div>
+                    <div class="instructor-image">
+                        <img src="images/instructors/marcus.jpg" alt="Marcus Andersson" loading="lazy">
+                    </div>
                     <div class="instructor-info">
-                        <div class="instructor-name">Marcus "Viking" Andersson</div>
-                        <div class="instructor-rank">Black Belt, 3rd Degree</div>
+                        <h3 class="instructor-name">Marcus "Viking" Andersson</h3>
+                        <p class="instructor-rank">Black Belt, 3rd Degree</p>
                         <p>Head instructor with 20 years experience. Multiple-time European champion and ADCC veteran.</p>
                     </div>
                 </div>
                 <div class="instructor-card fade-in">
-                    <div class="instructor-image">👩‍🏫</div>
+                    <div class="instructor-image">
+                        <img src="images/instructors/sofia.jpg" alt="Sofia Lindberg" loading="lazy">
+                    </div>
                     <div class="instructor-info">
-                        <div class="instructor-name">Sofia Lindberg</div>
-                        <div class="instructor-rank">Black Belt, 2nd Degree</div>
+                        <h3 class="instructor-name">Sofia Lindberg</h3>
+                        <p class="instructor-rank">Black Belt, 2nd Degree</p>
                         <p>Women's division specialist. World champion and expert in guard retention and submissions.</p>
                     </div>
                 </div>
                 <div class="instructor-card fade-in">
-                    <div class="instructor-image">👨‍🏫</div>
+                    <div class="instructor-image">
+                        <img src="images/instructors/guest.jpg" alt="Guest Instructor" loading="lazy">
+                    </div>
                     <div class="instructor-info">
-                        <div class="instructor-name">Guest Instructor TBA</div>
-                        <div class="instructor-rank">Special Guest</div>
+                        <h3 class="instructor-name">Guest Instructor TBA</h3>
+                        <p class="instructor-rank">Special Guest</p>
                         <p>We'll announce our special international guest instructor in Spring 2025!</p>
                     </div>
                 </div>
@@ -785,7 +212,7 @@
                     <div class="price">
                         <span class="price-currency">€</span>899
                     </div>
-                    <p>Book before March 1st</p>
+                    <p class="price-subtitle">Book before March 1st</p>
                     <ul class="pricing-features">
                         <li>All training sessions</li>
                         <li>Shared accommodation</li>
@@ -793,15 +220,16 @@
                         <li>Camp t-shirt</li>
                         <li>Certificate of completion</li>
                     </ul>
-                    <a href="#register" class="cta-button" style="background: var(--primary-blue); color: white;">Book Now</a>
+                    <a href="#register" class="cta-button">Book Now</a>
                 </div>
                 
                 <div class="pricing-card featured fade-in">
+                    <div class="featured-badge">Most Popular</div>
                     <h3>Regular Price</h3>
                     <div class="price">
                         <span class="price-currency">€</span>999
                     </div>
-                    <p>Standard registration</p>
+                    <p class="price-subtitle">Standard registration</p>
                     <ul class="pricing-features">
                         <li>All training sessions</li>
                         <li>Shared accommodation</li>
@@ -809,7 +237,7 @@
                         <li>Camp t-shirt</li>
                         <li>Certificate of completion</li>
                     </ul>
-                    <a href="#register" class="cta-button" style="background: var(--primary-blue); color: white;">Book Now</a>
+                    <a href="#register" class="cta-button">Book Now</a>
                 </div>
                 
                 <div class="pricing-card fade-in">
@@ -817,7 +245,7 @@
                     <div class="price">
                         <span class="price-currency">€</span>849
                     </div>
-                    <p>For groups of 5+</p>
+                    <p class="price-subtitle">For groups of 5+</p>
                     <ul class="pricing-features">
                         <li>All training sessions</li>
                         <li>Shared accommodation</li>
@@ -825,7 +253,7 @@
                         <li>Camp t-shirt</li>
                         <li>Certificate of completion</li>
                     </ul>
-                    <a href="#register" class="cta-button" style="background: var(--primary-blue); color: white;">Book Now</a>
+                    <a href="#register" class="cta-button">Book Now</a>
                 </div>
             </div>
         </div>
@@ -838,12 +266,42 @@
             <p class="section-subtitle">See what makes our camp special</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item fade-in">Training on the Mats</div>
-                <div class="gallery-item fade-in">Beach Training</div>
-                <div class="gallery-item fade-in">Group Photo 2024</div>
-                <div class="gallery-item fade-in">Evening BBQ</div>
-                <div class="gallery-item fade-in">Open Mat Sessions</div>
-                <div class="gallery-item fade-in">Sunrise Yoga</div>
+                <div class="gallery-item fade-in">
+                    <img src="images/gallery/training-1.jpg" alt="Training on the mats" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p>Training on the Mats</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="images/gallery/beach-training.jpg" alt="Beach training session" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p>Beach Training</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="images/gallery/group-photo.jpg" alt="Group photo 2024" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p>Group Photo 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="images/gallery/evening-bbq.jpg" alt="Evening BBQ" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p>Evening BBQ</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="images/gallery/open-mat.jpg" alt="Open mat sessions" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p>Open Mat Sessions</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="images/gallery/sunrise-yoga.jpg" alt="Sunrise yoga" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p>Sunrise Yoga</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -918,54 +376,60 @@
             
             <div class="faq-container">
                 <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <button class="faq-question">
                         Do I need to bring a gi?
-                    </div>
+                        <span class="faq-icon"></span>
+                    </button>
                     <div class="faq-answer">
                         <p>Yes, please bring at least 2 gis as we'll have multiple training sessions per day. We'll also have no-gi sessions, so bring rashguards and shorts/spats. There's laundry service available at the accommodation.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <button class="faq-question">
                         Is the camp beginner friendly?
-                    </div>
+                        <span class="faq-icon"></span>
+                    </button>
                     <div class="faq-answer">
                         <p>Absolutely! We welcome practitioners of all levels. Classes are structured to accommodate everyone, with techniques broken down step-by-step. Advanced students will get additional details and variations.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <button class="faq-question">
                         Where do we sleep?
-                    </div>
+                        <span class="faq-icon"></span>
+                    </button>
                     <div class="faq-answer">
                         <p>Accommodation is in shared cabins (4-6 people per cabin) at a beautiful facility just 5 minutes from the training venue. Single rooms are available for an additional fee. All cabins have private bathrooms and are very comfortable.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <button class="faq-question">
                         What about meals?
-                    </div>
+                        <span class="faq-icon"></span>
+                    </button>
                     <div class="faq-answer">
                         <p>All meals are included and prepared by professional chefs. We offer a variety of healthy options including vegetarian and vegan choices. Please indicate any dietary restrictions when registering.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <button class="faq-question">
                         How do I get to Strömstad?
-                    </div>
+                        <span class="faq-icon"></span>
+                    </button>
                     <div class="faq-answer">
                         <p>Strömstad is easily accessible by train from Gothenburg (2 hours) or Oslo (2.5 hours). We can arrange group transfers from Gothenburg airport for those arriving on the same day. Detailed travel information will be sent upon registration.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
+                    <button class="faq-question">
                         What's the cancellation policy?
-                    </div>
+                        <span class="faq-icon"></span>
+                    </button>
                     <div class="faq-answer">
                         <p>Full refund if cancelled 60+ days before camp. 50% refund if cancelled 30-59 days before. No refund within 30 days of camp start, but you can transfer your spot to another person.</p>
                     </div>
@@ -983,24 +447,38 @@
             <div class="contact-grid">
                 <div class="contact-info fade-in">
                     <h3>Get in Touch</h3>
-                    <p>📧 info@westcoastbjjcamp.se</p>
-                    <p>📱 +46 70 123 45 67</p>
+                    <p><a href="mailto:info@westcoastbjjcamp.se">📧 info@westcoastbjjcamp.se</a></p>
+                    <p><a href="tel:+46701234567">📱 +46 70 123 45 67</a></p>
                     <p>📍 Strömstad Sports Center<br>
                        Uddevallavägen 15<br>
                        452 30 Strömstad, Sweden</p>
                     
-                    <div style="margin-top: 2rem;">
+                    <div class="social-section">
                         <h3>Follow Us</h3>
-                        <div class="social-links" style="justify-content: start;">
-                            <a href="#">📘</a>
-                            <a href="#">📷</a>
-                            <a href="#">🎥</a>
+                        <div class="social-links">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <img src="images/icons/facebook.svg" alt="Facebook" width="24" height="24">
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <img src="images/icons/instagram.svg" alt="Instagram" width="24" height="24">
+                            </a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                <img src="images/icons/youtube.svg" alt="YouTube" width="24" height="24">
+                            </a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="map-container fade-in">
-                    <p>Interactive map will be displayed here</p>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2047.5!2d11.1717!3d58.9370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTjCsDU2JzEzLjIiTiAxMcKwMTAnMTguMSJF!5e0!3m2!1sen!2sse!4v1620000000000!5m2!1sen!2sse" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Location of Westcoast BJJ Camp in Strömstad">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -1010,92 +488,11 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Westcoast BJJ Camp. All rights reserved.</p>
-            <p style="margin-top: 1rem; opacity: 0.8;">Made with ❤️ in Sweden</p>
+            <p class="footer-subtitle">Made with ❤️ in Sweden</p>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-
-        // FAQ toggle
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            faqItem.classList.toggle('active');
-        }
-
-        // Form submission
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Collect form data
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                beltLevel: document.getElementById('beltLevel').value,
-                dietary: document.getElementById('dietary').value,
-                tshirtSize: document.getElementById('tshirtSize').value,
-                comments: document.getElementById('comments').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            // In a real implementation, you would send this to your server
-            // For now, we'll just show a success message
-            console.log('Form data:', formData);
-            
-            alert('Thank you for registering! We\'ll send you a confirmation email within 24 hours.');
-            this.reset();
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.97)';
-                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
