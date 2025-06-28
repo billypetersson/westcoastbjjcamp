@@ -1,280 +1,209 @@
 # Westcoast BJJ Camp Website
 
-A modern, responsive website for Westcoast BJJ Camp in Strömstad, Sweden. Built with vanilla HTML, CSS, and JavaScript for optimal performance and SEO.
+En modern, responsiv hemsida för Westcoast BJJ Camp i Strömstad, Sverige.
 
-## 🏗️ Project Structure
+## 📁 Filstruktur
 
 ```
-westcoastbjjcamp/
-├── index.html                  # Homepage
-├── about.html                  # About the camp
-├── schedule.html               # Daily training schedule
-├── instructors.html            # Meet the instructors
-├── pricing.html                # Camp packages and pricing
-├── gallery.html                # Photo gallery
-├── contact.html                # Contact information and FAQ
-├── register.html               # Registration form
+westcoast-bjj-camp/
+├── index.html              # Huvudsaklig HTML-fil
 ├── css/
-│   └── style.css              # Main stylesheet (externalized from HTML)
+│   └── style.css          # Alla stilmallar
 ├── js/
-│   └── main.js                # JavaScript functionality
+│   └── main.js           # JavaScript-funktioner
 ├── images/
-│   ├── westcoastlogo.webp     # Official camp logo
-│   ├── hero-bg.jpg            # Hero section background
-│   ├── og-image.webp          # Social media sharing image
-│   ├── favicon.webp           # Browser favicon
-│   ├── icons/                 # SVG icons for features
+│   ├── logo.svg          # Logotyp
+│   ├── hero-bg.jpg       # Hero-bakgrundsbild
+│   ├── og-image.jpg      # Social media delningsbild
+│   ├── apple-touch-icon.png
+│   ├── favicon.ico
+│   ├── icons/            # Ikoner för olika sektioner
 │   │   ├── location.svg
 │   │   ├── belt.svg
 │   │   ├── home.svg
 │   │   ├── community.svg
-│   │   ├── email.svg
-│   │   ├── phone.svg
 │   │   ├── facebook.svg
 │   │   ├── instagram.svg
 │   │   └── youtube.svg
-│   ├── instructors/           # Instructor photos
+│   ├── instructors/      # Instruktörsbilder
 │   │   ├── marcus.jpg
 │   │   ├── sofia.jpg
 │   │   └── guest.jpg
-│   └── gallery/               # Camp photo gallery
+│   └── gallery/          # Galleriblider
 │       ├── training-1.jpg
 │       ├── beach-training.jpg
 │       ├── group-photo.jpg
 │       ├── evening-bbq.jpg
 │       ├── open-mat.jpg
 │       └── sunrise-yoga.jpg
-├── includes/                   # Reusable components (legacy)
-│   ├── head.html
-│   ├── navigation.html
-│   └── footer.html
-├── robots.txt                  # SEO robots file
-├── sitemap.xml                 # SEO sitemap
-├── CNAME                       # Custom domain configuration
-└── README.md                   # This file
-```
+└── README.md              # Denna fil
 
-## 🚀 Getting Started
+## 🚀 Kom igång
 
-### 1. Local Development
-To run the website locally:
+### 1. Ladda ner filerna
+Spara alla filer i rätt mappstruktur enligt ovan.
 
-```bash
-# Simple HTTP server (Python 3)
-python -m http.server 8000
+### 2. Lägg till bilder
+Du behöver lägga till följande bilder:
+- **Hero-bakgrund** (1920x1080px rekommenderat)
+- **Logotyp** (SVG eller PNG, transparent bakgrund)
+- **Instruktörsfoton** (400x400px rekommenderat)
+- **Galleriblider** (minst 800x600px)
+- **Favicon** (16x16px och 32x32px)
 
-# Or with Node.js
-npx serve .
+### 3. Anpassa innehåll
+Redigera `index.html` för att:
+- Uppdatera text och information
+- Ändra datum för lägret
+- Uppdatera priser
+- Lägga till rätt kontaktinformation
+- Uppdatera sociala medier-länkar
 
-# Or with PHP
-php -S localhost:8000
-```
+### 4. Konfigurera formulär
+Formuläret behöver anslutas till en backend-tjänst. Välj ett alternativ:
 
-Then open `http://localhost:8000` in your browser.
+#### Alternativ A: Google Sheets
+1. Skapa ett Google Apps Script
+2. Koppla till ett Google Sheets-dokument
+3. Uppdatera URL:en i `main.js`
 
-### 2. Adding Images
-Replace placeholder images with actual camp photos:
-- **Logo**: `images/westcoastlogo.webp` (already added)
-- **Hero background**: `images/hero-bg.jpg` (1920x1080px recommended)
-- **Instructor photos**: `images/instructors/` (400x400px square)
-- **Gallery images**: `images/gallery/` (landscape orientation, 800x600px minimum)
+#### Alternativ B: Mailchimp
+1. Skapa ett Mailchimp-konto
+2. Skapa en lista och formulär
+3. Uppdatera URL:en i `main.js`
 
-### 3. Content Customization
-Update the following in each HTML file:
-- Camp dates (currently July 15-21, 2025)
-- Pricing information
-- Contact details
-- Social media links
-- Instructor information
+#### Alternativ C: Egen server
+1. Skapa en server-endpoint som tar emot POST-requests
+2. Uppdatera URL:en i `main.js`
 
-## 🎯 Key Features
+## 📱 Funktioner
 
-### Architecture
-- ✅ **Multi-page structure** - Better SEO and navigation
-- ✅ **Externalized CSS/JS** - Improved maintainability
-- ✅ **Responsive design** - Works on all devices
-- ✅ **Semantic HTML** - Accessibility compliant
+- ✅ Fullt responsiv design
+- ✅ Smooth scrolling
+- ✅ Animationer vid scroll
+- ✅ FAQ accordion
+- ✅ Bildgalleri med lightbox
+- ✅ Formulärvalidering
+- ✅ SEO-optimerad
+- ✅ Snabb laddningstid
 
-### Performance
-- ✅ **Optimized images** - WebP format where supported
-- ✅ **Lazy loading** - Images load as needed
-- ✅ **Minified assets** - Faster load times
-- ✅ **Caching headers** - Browser optimization
+## 🎨 Anpassning
 
-### SEO & Accessibility
-- ✅ **Meta tags** - Proper descriptions and keywords
-- ✅ **Open Graph** - Social media sharing
-- ✅ **ARIA labels** - Screen reader friendly
-- ✅ **Structured data** - Search engine optimization
-
-### Interactive Features
-- ✅ **Smooth scrolling** - Enhanced navigation
-- ✅ **Scroll animations** - Fade-in effects
-- ✅ **Mobile menu** - Touch-friendly navigation
-- ✅ **FAQ accordion** - Expandable Q&A sections
-- ✅ **Form validation** - Client-side validation
-- ✅ **Gallery lightbox** - Image viewing experience
-
-## 🎨 Customization
-
-### Colors
-Modify the CSS custom properties in `css/style.css`:
-
+### Färger
+Ändra färgerna i `css/style.css`:
 ```css
 :root {
-    --primary-blue: #2563eb;    /* Primary brand color */
-    --light-blue: #dbeafe;      /* Light accent */
-    --dark-blue: #1e40af;       /* Dark accent */
-    --white: #ffffff;
-    --gray-light: #f3f4f6;
-    --gray-medium: #6b7280;
-    --gray-dark: #1f2937;
+    --primary-blue: #2563eb;    /* Huvudfärg */
+    --light-blue: #dbeafe;      /* Ljus accent */
+    --dark-blue: #1e40af;       /* Mörk accent */
 }
 ```
 
-### Typography
-The site uses Inter font from Google Fonts. To change:
-1. Update the Google Fonts link in HTML files
-2. Modify the `font-family` declarations in CSS
+### Typsnitt
+Sidan använder Inter från Google Fonts. För att ändra:
+1. Välj ett nytt typsnitt på [Google Fonts](https://fonts.google.com)
+2. Uppdatera `<link>` i `index.html`
+3. Ändra `font-family` i `css/style.css`
 
-### Layout
-The CSS uses modern techniques:
-- **CSS Grid** for complex layouts
-- **Flexbox** for component alignment
-- **CSS Custom Properties** for theming
-- **Mobile-first responsive design**
+## 🌐 Publicering
 
-## 📝 Form Configuration
+### GitHub Pages (Gratis)
+1. Skapa ett GitHub-repository
+2. Ladda upp alla filer
+3. Gå till Settings → Pages
+4. Välj "Deploy from a branch"
+5. Välj "main" branch
+6. Din sida publiceras på: `https://[användarnamn].github.io/[repo-namn]/`
 
-The registration and contact forms need backend integration. Options include:
+### Egen domän
+1. Köp domänen westcoastbjjcamp.se
+2. Lägg till en `CNAME`-fil med domännamnet
+3. Konfigurera DNS-inställningar hos din domänleverantör
 
-### Option A: Netlify Forms (Recommended)
+## 📧 E-postintegration
+
+För att ta emot formulärdata via e-post:
+
+### SendGrid
+```javascript
+// Lägg till i main.js
+async function sendEmail(formData) {
+    const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer YOUR_API_KEY',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            personalizations: [{
+                to: [{ email: 'info@westcoastbjjcamp.se' }]
+            }],
+            from: { email: 'noreply@westcoastbjjcamp.se' },
+            subject: 'Ny registrering - Westcoast BJJ Camp',
+            content: [{
+                type: 'text/html',
+                value: `
+                    <h2>Ny registrering</h2>
+                    <p><strong>Namn:</strong> ${formData.fullName}</p>
+                    <p><strong>E-post:</strong> ${formData.email}</p>
+                    <p><strong>Telefon:</strong> ${formData.phone}</p>
+                    <p><strong>Bälte:</strong> ${formData.beltLevel}</p>
+                `
+            }]
+        })
+    });
+}
+```
+
+## 🔍 SEO-tips
+
+1. **Uppdatera meta-taggar** i `index.html`
+2. **Lägg till strukturerad data** för event
+3. **Skapa en sitemap.xml**
+4. **Lägg till robots.txt**
+5. **Optimera bildstorlekar** (använd WebP-format)
+
+## 📊 Analytics
+
+Lägg till Google Analytics eller Plausible:
+
 ```html
-<form netlify>
-    <!-- Netlify automatically handles form submissions -->
-</form>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'YOUR_ID');
+</script>
 ```
 
-### Option B: Google Apps Script
-```javascript
-// Update the API endpoint in js/main.js
-CONFIG.API_ENDPOINTS.REGISTRATION = 'YOUR_GOOGLE_SCRIPT_URL';
-```
+## 🐛 Felsökning
 
-### Option C: Custom Backend
-```javascript
-// Configure your own server endpoint
-CONFIG.API_ENDPOINTS.REGISTRATION = 'https://yourapi.com/register';
-```
+### Bilder visas inte
+- Kontrollera filsökvägar
+- Se till att bilderna ligger i rätt mappar
+- Kontrollera filnamn (case-sensitive)
 
-## 🌐 Deployment
+### Formulär fungerar inte
+- Öppna utvecklarkonsolen (F12)
+- Kontrollera för JavaScript-fel
+- Verifiera att backend-URL är korrekt
 
-### GitHub Pages (Free)
-1. Push code to GitHub repository
-2. Go to Settings → Pages
-3. Select "Deploy from a branch"
-4. Choose "main" branch
-5. Site available at: `https://[username].github.io/[repo-name]/`
+### Mobilmenyn fungerar inte
+- Kontrollera att JavaScript laddas
+- Verifiera att ID:n matchar mellan HTML och JS
 
-### Custom Domain
-1. Add `CNAME` file with your domain
-2. Configure DNS A records to point to GitHub Pages
-3. Enable HTTPS in repository settings
+## 📞 Support
 
-### Netlify (Recommended)
-1. Connect GitHub repository to Netlify
-2. Configure build settings (none needed for static site)
-3. Set up custom domain and SSL
-4. Enable form handling for contact forms
+För hjälp med hemsidan, kontakta:
+- E-post: [din-email@exempel.se]
+- GitHub Issues: [github.com/ditt-användarnamn/westcoast-bjj-camp/issues]
 
-## 🔧 Technical Details
+## 📄 Licens
 
-### Browser Support
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
-
-### Performance Metrics
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **Page Load Time**: <2 seconds on 3G
-- **First Contentful Paint**: <1.5 seconds
-
-### Security Features
-- Content Security Policy headers (via `.htaccess`)
-- No inline JavaScript or CSS
-- Secure external resource loading
-- Form submission protection
-
-## 📱 Multi-Page Benefits
-
-The site was converted from single-page to multi-page architecture for:
-
-1. **Better SEO** - Each page can target specific keywords
-2. **Improved Loading** - Smaller initial payload
-3. **Enhanced Navigation** - Clearer user journey
-4. **Content Organization** - Logical separation of concerns
-5. **Social Sharing** - Specific pages can be shared
-6. **Analytics** - Better tracking of user engagement
-
-## 🐛 Troubleshooting
-
-### Images Not Loading
-- Check file paths (case-sensitive on Linux servers)
-- Verify images exist in correct directories
-- Ensure proper file permissions
-
-### JavaScript Not Working
-- Open browser developer tools (F12)
-- Check Console tab for errors
-- Verify all script files are loading
-
-### Styling Issues
-- Check CSS file is loading correctly
-- Verify external font links
-- Test in different browsers
-
-### Form Submission Issues
-- Configure backend endpoint correctly
-- Check CORS settings if using external API
-- Verify form validation is not blocking submission
-
-## 📈 SEO Optimization
-
-### Current Optimizations
-- ✅ Proper HTML structure and semantic tags
-- ✅ Meta descriptions and keywords
-- ✅ Open Graph and Twitter Card meta tags
-- ✅ Clean, descriptive URLs
-- ✅ Image alt attributes
-- ✅ Sitemap.xml and robots.txt
-
-### Recommended Improvements
-1. Add structured data (JSON-LD) for events
-2. Implement AMP pages for mobile speed
-3. Add breadcrumb navigation
-4. Create blog section for content marketing
-5. Optimize images further with next-gen formats
-
-## 📞 Support & Maintenance
-
-### Regular Updates Needed
-- Camp dates and pricing
-- Instructor information
-- Gallery photos from recent camps
-- Testimonials and reviews
-
-### Monitoring
-- Set up Google Analytics
-- Monitor Core Web Vitals
-- Check broken links monthly
-- Update dependencies annually
-
-## 📄 License
-
-This website is created for Westcoast BJJ Camp. All rights reserved.
+Detta projekt är skapat för Westcoast BJJ Camp. Alla rättigheter förbehållna.
 
 ---
 
-**Built with ❤️ for the BJJ community**  
-*Featuring the beautiful Swedish coast and world-class training*
+Skapad med ❤️ för BJJ-communityn

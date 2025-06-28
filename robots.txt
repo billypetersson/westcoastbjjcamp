@@ -1,0 +1,11 @@
+# Robots.txt for Westcoast BJJ Camp
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://westcoastbjjcamp.se/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.log$

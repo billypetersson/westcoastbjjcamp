@@ -2,714 +2,634 @@
 // Westcoast BJJ Camp - Main JavaScript
 // ========================================
 
+// Configuration object for easy management
+const CONFIG = {
+    // Remove hardcoded URLs for security
+    API_ENDPOINTS: {
+        REGISTRATION: process?.env?.REGISTRATION_ENDPOINT || '/api/register',
+        CONTACT: process?.env?.CONTACT_ENDPOINT || '/api/contact'
+    },
+    ANIMATION: {
+        FADE_IN_THRESHOLD: 0.1,
+        FADE_IN_ROOT_MARGIN: '0px 0px -100px 0px'
+    },
+    NAVBAR: {
+        SCROLL_THRESHOLD: 50,
+        HIDE_THRESHOLD: 500
+    }
+};
+
+// DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
-    
-    // Smooth Scrolling for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            
-            if (target) {
-                const navHeight = document.getElementById('navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            }
-        });
-    });
-    
-    // Navbar Background on Scroll
-    const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.97)';
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        }
-        
-        // Hide/show navbar on scroll
-        if (currentScroll > lastScroll && currentScroll > 500) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-    
-    // FAQ Accordion
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        });
-    });
-    
-    // Form Validation and Submission
-    const registrationForm = document.getElementById('registrationForm');
-    
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                fullName: document.getElementById('fullName').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                beltLevel: document.getElementById('beltLevel').value,
-                dietary: document.getElementById('dietary').value.trim(),
-                tshirtSize: document.getElementById('tshirtSize').value,
-                comments: document.getElementById('comments').value.trim(),
-                timestamp: new Date().toISOString()
-            };
-            
-            // Basic validation
-            if (!formData.fullName || !formData.email || !formData.phone || !formData.beltLevel) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Phone validation (basic)
-            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-            if (!phoneRegex.test(formData.phone)) {
-                alert('Please enter a valid phone number.');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            try {
-                // Send to Google Sheets
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to submit registration');
-            }
-                
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Log form data (for development)
-                console.log('Registration submitted:', formData);
-                
-                // Show success message
-                alert('Thank you for registering! We\'ll send you a confirmation email within 24 hours.');
-                
-                // Reset form
-                this.reset();
-                
-                // Optional: Redirect to thank you page
-                // window.location.href = '/thank-you';
-                
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('Sorry, there was an error submitting your registration. Please try again or contact us directly.');
-            } finally {
-                // Reset button state
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
-    
-    // Fade In Animation on Scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // Optional: Stop observing after animation
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all fade-in elements
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Gallery Lightbox (basic implementation)
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-                // Create lightbox
-                const lightbox = document.createElement('div');
-                lightbox.className = 'lightbox';
-                lightbox.innerHTML = `
-                    <div class="lightbox-content">
-                        <span class="lightbox-close">&times;</span>
-                        <img src="${img.src}" alt="${img.alt}">
-                    </div>
-                `;
-                
-                document.body.appendChild(lightbox);
-                
-                // Add styles
-                lightbox.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10000;
-                    cursor: pointer;
-                `;
-                
-                const content = lightbox.querySelector('.lightbox-content');
-                content.style.cssText = `
-                    position: relative;
-                    max-width: 90%;
-                    max-height: 90%;
-                `;
-                
-                const lightboxImg = content.querySelector('img');
-                lightboxImg.style.cssText = `
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                `;
-                
-                const closeBtn = content.querySelector('.lightbox-close');
-                closeBtn.style.cssText = `
-                    position: absolute;
-                    top: -40px;
-                    right: 0;
-                    color: white;
-                    font-size: 2rem;
-                    cursor: pointer;
-                    font-weight: bold;
-                `;
-                
-                // Close lightbox
-                lightbox.addEventListener('click', function(e) {
-                    if (e.target === lightbox || e.target === closeBtn) {
-                        lightbox.remove();
-                    }
-                });
-                
-                // Close with escape key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && document.querySelector('.lightbox')) {
-                        document.querySelector('.lightbox').remove();
-                    }
-                });
-            }
-        });
-    });
-    
-    // Lazy Loading for Images
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports lazy loading
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            img.src = img.src;
-        });
-    } else {
-        // Fallback for browsers that don't support lazy loading
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-        document.body.appendChild(script);
-    }
-    
-    // Performance: Throttle scroll events
-    let ticking = false;
-    function throttleScroll(callback) {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                callback();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-    
-    // Apply throttle to scroll events
-    let scrollEvents = [];
-    window.addEventListener('scroll', function() {
-        throttleScroll(function() {
-            scrollEvents.forEach(callback => callback());
-        });
-    });
-    
-    // Add scroll event listeners using the throttled system
-    scrollEvents.push(function() {
-        // Your scroll-based animations here
-    });
-    
-});// ========================================
-// Westcoast BJJ Camp - Main JavaScript
-// ========================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
-    
-    // Smooth Scrolling for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            
-            if (target) {
-                const navHeight = document.getElementById('navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            }
-        });
-    });
-    
-    // Navbar Background on Scroll
-    const navbar = document.getElementById('navbar');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.97)';
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        }
-        
-        // Hide/show navbar on scroll
-        if (currentScroll > lastScroll && currentScroll > 500) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-    
-    // FAQ Accordion
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        });
-    });
-    
-    // Form Validation and Submission
-    const registrationForm = document.getElementById('registrationForm');
-    
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                fullName: document.getElementById('fullName').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                beltLevel: document.getElementById('beltLevel').value,
-                dietary: document.getElementById('dietary').value.trim(),
-                tshirtSize: document.getElementById('tshirtSize').value,
-                comments: document.getElementById('comments').value.trim(),
-                timestamp: new Date().toISOString()
-            };
-            
-            // Basic validation
-            if (!formData.fullName || !formData.email || !formData.phone || !formData.beltLevel) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Phone validation (basic)
-            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-            if (!phoneRegex.test(formData.phone)) {
-                alert('Please enter a valid phone number.');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            try {
-// Send to Google Sheets
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to submit registration');
-            }
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Log form data (for development)
-                console.log('Registration submitted:', formData);
-                
-                // Show success message
-                alert('Thank you for registering! We\'ll send you a confirmation email within 24 hours.');
-                
-                // Reset form
-                this.reset();
-                
-                // Optional: Redirect to thank you page
-                // window.location.href = '/thank-you';
-                
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('Sorry, there was an error submitting your registration. Please try again or contact us directly.');
-            } finally {
-                // Reset button state
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
-    
-    // Fade In Animation on Scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // Optional: Stop observing after animation
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all fade-in elements
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Gallery Lightbox (basic implementation)
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            if (img) {
-                // Create lightbox
-                const lightbox = document.createElement('div');
-                lightbox.className = 'lightbox';
-                lightbox.innerHTML = `
-                    <div class="lightbox-content">
-                        <span class="lightbox-close">&times;</span>
-                        <img src="${img.src}" alt="${img.alt}">
-                    </div>
-                `;
-                
-                document.body.appendChild(lightbox);
-                
-                // Add styles
-                lightbox.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 10000;
-                    cursor: pointer;
-                `;
-                
-                const content = lightbox.querySelector('.lightbox-content');
-                content.style.cssText = `
-                    position: relative;
-                    max-width: 90%;
-                    max-height: 90%;
-                `;
-                
-                const lightboxImg = content.querySelector('img');
-                lightboxImg.style.cssText = `
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                `;
-                
-                const closeBtn = content.querySelector('.lightbox-close');
-                closeBtn.style.cssText = `
-                    position: absolute;
-                    top: -40px;
-                    right: 0;
-                    color: white;
-                    font-size: 2rem;
-                    cursor: pointer;
-                    font-weight: bold;
-                `;
-                
-                // Close lightbox
-                lightbox.addEventListener('click', function(e) {
-                    if (e.target === lightbox || e.target === closeBtn) {
-                        lightbox.remove();
-                    }
-                });
-                
-                // Close with escape key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && document.querySelector('.lightbox')) {
-                        document.querySelector('.lightbox').remove();
-                    }
-                });
-            }
-        });
-    });
-    
-    // Lazy Loading for Images
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports lazy loading
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            img.src = img.src;
-        });
-    } else {
-        // Fallback for browsers that don't support lazy loading
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-        document.body.appendChild(script);
-    }
-    
-    // Performance: Throttle scroll events
-    let ticking = false;
-    function throttleScroll(callback) {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                callback();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-    
-    // Apply throttle to scroll events
-    let scrollEvents = [];
-    window.addEventListener('scroll', function() {
-        throttleScroll(function() {
-            scrollEvents.forEach(callback => callback());
-        });
-    });
-    
-    // Add scroll event listeners using the throttled system
-    scrollEvents.push(function() {
-        // Your scroll-based animations here
-    });
-    
+    initializeApp();
 });
 
-// Google Sheets Integration Example
-// Uncomment and modify this function if you want to use Google Sheets
-/*
-async function submitToGoogleSheets(formData) {
-    const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+// Main initialization function
+function initializeApp() {
+    initMobileMenu();
+    initSmoothScrolling();
+    initNavbarEffects();
+    initFAQAccordion();
+    initRegistrationForm();
+    initScrollAnimations();
+    initGalleryLightbox();
+    initLazyLoading();
+    initPerformanceOptimizations();
+}
+
+// ========================================
+// Mobile Navigation
+// ========================================
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
     
-    try {
-        const response = await fetch(GOOGLE_SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
+    if (!mobileMenuBtn || !navLinks) return;
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = this.classList.contains('active');
         
-        return true;
-    } catch (error) {
-        console.error('Error submitting to Google Sheets:', error);
-        return false;
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        
+        // Update ARIA attributes for accessibility
+        this.setAttribute('aria-expanded', !isOpen);
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+}
+
+function closeMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
     }
 }
-*/
 
-// Mailchimp Integration Example
-// Uncomment and modify this function if you want to use Mailchimp
-/*
-async function submitToMailchimp(formData) {
-    const MAILCHIMP_URL = 'YOUR_MAILCHIMP_FORM_ACTION_URL';
+// ========================================
+// Smooth Scrolling
+// ========================================
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                const navbar = document.getElementById('navbar');
+                const navHeight = navbar ? navbar.offsetHeight : 0;
+                const targetPosition = target.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                closeMobileMenu();
+                
+                // Update URL without triggering scroll
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+}
+
+// ========================================
+// Navbar Effects
+// ========================================
+function initNavbarEffects() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
     
-    const data = new FormData();
-    data.append('EMAIL', formData.email);
-    data.append('FNAME', formData.fullName.split(' ')[0]);
-    data.append('LNAME', formData.fullName.split(' ').slice(1).join(' '));
-    data.append('PHONE', formData.phone);
+    let lastScroll = 0;
+    let ticking = false;
     
-    try {
-        const response = await fetch(MAILCHIMP_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: data
+    function updateNavbar() {
+        const currentScroll = window.pageYOffset;
+        
+        // Change navbar background on scroll
+        if (currentScroll > CONFIG.NAVBAR.SCROLL_THRESHOLD) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.15)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.97)';
+            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        }
+        
+        // Hide/show navbar on scroll direction
+        if (currentScroll > lastScroll && currentScroll > CONFIG.NAVBAR.HIDE_THRESHOLD) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    });
+}
+
+// ========================================
+// FAQ Accordion
+// ========================================
+function initFAQAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                const btn = item.querySelector('.faq-question');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+            }
         });
         
-        return true;
-    } catch (error) {
-        console.error('Error submitting to Mailchimp:', error);
-        return false;
-    }
+        // Add keyboard support
+        question.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
 }
-*/
 
-// Google Sheets Integration Example
-// Uncomment and modify this function if you want to use Google Sheets
-
-// async function submitToGoogleSheets(formData) {
-//     const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzH4u3iWKlXbXepbScX1me5U_4nfCmH4fYbHA60MW_S4n2Sv1vNVODngR8rX3r8TjIy/exec';
+// ========================================
+// Registration Form
+// ========================================
+function initRegistrationForm() {
+    const form = document.getElementById('registrationForm');
+    if (!form) return;
     
-//     try {
-//         const response = await fetch(GOOGLE_SHEETS_URL, {
-//             method: 'POST',
-//             mode: 'no-cors',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(formData)
-//         });
-        
-//         return true;
-//     } catch (error) {
-//         console.error('Error submitting to Google Sheets:', error);
-//         return false;
-//     }
-// }
-
-// Mailchimp Integration Example
-// Uncomment and modify this function if you want to use Mailchimp
-/*
-async function submitToMailchimp(formData) {
-    const MAILCHIMP_URL = 'YOUR_MAILCHIMP_FORM_ACTION_URL';
+    form.addEventListener('submit', handleFormSubmission);
     
-    const data = new FormData();
-    data.append('EMAIL', formData.email);
-    data.append('FNAME', formData.fullName.split(' ')[0]);
-    data.append('LNAME', formData.fullName.split(' ').slice(1).join(' '));
-    data.append('PHONE', formData.phone);
+    // Add real-time validation
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', validateField);
+        input.addEventListener('input', clearFieldError);
+    });
+}
+
+async function handleFormSubmission(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    
+    // Validate all fields
+    if (!validateForm(form)) {
+        return;
+    }
+    
+    // Get form data
+    const formData = getFormData(form);
+    
+    // Show loading state
+    setSubmitButtonState(submitBtn, 'Submitting...', true);
     
     try {
-        const response = await fetch(MAILCHIMP_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: data
-        });
+        // Send data to server (placeholder for now)
+        await submitRegistration(formData);
         
-        return true;
+        // Show success message
+        showSuccessMessage();
+        
+        // Reset form
+        form.reset();
+        
     } catch (error) {
-        console.error('Error submitting to Mailchimp:', error);
-        return false;
+        console.error('Error submitting form:', error);
+        showErrorMessage('Sorry, there was an error submitting your registration. Please try again or contact us directly.');
+    } finally {
+        // Reset button state
+        setSubmitButtonState(submitBtn, originalText, false);
     }
 }
-*/
+
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!validateField({ target: field })) {
+            isValid = false;
+        }
+    });
+    
+    return isValid;
+}
+
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
+    const fieldType = field.type;
+    const fieldName = field.name;
+    
+    // Remove existing error styling
+    clearFieldError({ target: field });
+    
+    // Check if required field is empty
+    if (field.hasAttribute('required') && !value) {
+        showFieldError(field, 'This field is required');
+        return false;
+    }
+    
+    // Email validation
+    if (fieldType === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            showFieldError(field, 'Please enter a valid email address');
+            return false;
+        }
+    }
+    
+    // Phone validation
+    if (fieldName === 'phone' && value) {
+        const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+        if (!phoneRegex.test(value) || value.length < 8) {
+            showFieldError(field, 'Please enter a valid phone number');
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Remove existing error message
+    const existingError = field.parentNode.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add new error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    errorDiv.style.cssText = 'color: #ef4444; font-size: 0.875rem; margin-top: 0.25rem;';
+    
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearFieldError(e) {
+    const field = e.target;
+    field.classList.remove('error');
+    
+    const errorMessage = field.parentNode.querySelector('.error-message');
+    if (errorMessage) {
+        errorMessage.remove();
+    }
+}
+
+function getFormData(form) {
+    return {
+        fullName: form.fullName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        beltLevel: form.beltLevel.value,
+        dietary: form.dietary.value.trim(),
+        tshirtSize: form.tshirtSize.value,
+        comments: form.comments.value.trim(),
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        referrer: document.referrer
+    };
+}
+
+async function submitRegistration(formData) {
+    // In production, this would connect to your backend
+    // For now, we'll simulate an API call
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Registration data:', formData);
+            // Randomly simulate success/failure for demo
+            if (Math.random() > 0.1) {
+                resolve({ success: true });
+            } else {
+                reject(new Error('Simulated server error'));
+            }
+        }, 1500);
+    });
+}
+
+function setSubmitButtonState(button, text, disabled) {
+    button.textContent = text;
+    button.disabled = disabled;
+}
+
+function showSuccessMessage() {
+    alert('Thank you for registering! We\'ll send you a confirmation email within 24 hours.');
+}
+
+function showErrorMessage(message) {
+    alert(message);
+}
+
+// ========================================
+// Scroll Animations
+// ========================================
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: CONFIG.ANIMATION.FADE_IN_THRESHOLD,
+        rootMargin: CONFIG.ANIMATION.FADE_IN_ROOT_MARGIN
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Optional: Stop observing after animation for performance
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ========================================
+// Gallery Lightbox
+// ========================================
+function initGalleryLightbox() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', openLightbox);
+        
+        // Add keyboard support
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox.call(this);
+            }
+        });
+    });
+}
+
+function openLightbox() {
+    const img = this.querySelector('img');
+    if (!img) return;
+    
+    const lightbox = createLightboxElement(img);
+    document.body.appendChild(lightbox);
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+    
+    // Close lightbox handlers
+    setupLightboxCloseHandlers(lightbox);
+    
+    // Animate in
+    setTimeout(() => {
+        lightbox.style.opacity = '1';
+    }, 10);
+}
+
+function createLightboxElement(img) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <img src="${img.src}" alt="${img.alt}" loading="lazy">
+        </div>
+    `;
+    
+    // Apply styles
+    lightbox.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    
+    const content = lightbox.querySelector('.lightbox-content');
+    content.style.cssText = `
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        cursor: default;
+    `;
+    
+    const lightboxImg = content.querySelector('img');
+    lightboxImg.style.cssText = `
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        max-width: 90vw;
+        max-height: 90vh;
+    `;
+    
+    const closeBtn = content.querySelector('.lightbox-close');
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        font-weight: bold;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        line-height: 1;
+    `;
+    
+    return lightbox;
+}
+
+function setupLightboxCloseHandlers(lightbox) {
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const content = lightbox.querySelector('.lightbox-content');
+    
+    function closeLightbox() {
+        lightbox.style.opacity = '0';
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            if (lightbox.parentNode) {
+                lightbox.remove();
+            }
+        }, 300);
+    }
+    
+    // Click outside to close
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Close button
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Escape key to close
+    function handleKeyDown(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+    }
+    
+    document.addEventListener('keydown', handleKeyDown);
+    
+    // Prevent content click from closing
+    content.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+}
+
+// ========================================
+// Lazy Loading
+// ========================================
+function initLazyLoading() {
+    if ('loading' in HTMLImageElement.prototype) {
+        // Browser supports native lazy loading
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            if (!img.src && img.dataset.src) {
+                img.src = img.dataset.src;
+            }
+        });
+    } else {
+        // Fallback for browsers that don't support lazy loading
+        loadLazySizesLibrary();
+    }
+}
+
+function loadLazySizesLibrary() {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    script.async = true;
+    document.head.appendChild(script);
+}
+
+// ========================================
+// Performance Optimizations
+// ========================================
+function initPerformanceOptimizations() {
+    // Preload critical resources
+    preloadCriticalResources();
+    
+    // Setup performance monitoring
+    setupPerformanceMonitoring();
+}
+
+function preloadCriticalResources() {
+    const criticalImages = [
+        './images/hero-bg.jpg',
+        './images/logo.svg'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}
+
+function setupPerformanceMonitoring() {
+    // Log performance metrics
+    window.addEventListener('load', function() {
+        if ('performance' in window) {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+        }
+    });
+}
+
+// ========================================
+// Utility Functions
+// ========================================
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// ========================================
+// Error Handling
+// ========================================
+window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+    // In production, you might want to send this to an error reporting service
+});
+
+// Handle unhandled promise rejections
+window.addEventListener('unhandledrejection', function(e) {
+    console.error('Unhandled promise rejection:', e.reason);
+    e.preventDefault();
+});

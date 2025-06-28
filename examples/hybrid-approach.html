@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head as current site -->
+    <title>Hybrid Approach Example</title>
+</head>
+<body>
+    <!-- Most of the site stays vanilla HTML -->
+    <nav>
+        <!-- Vanilla JavaScript navigation -->
+    </nav>
+    
+    <section class="hero">
+        <!-- Static HTML content -->
+    </section>
+    
+    <section class="about">
+        <!-- Static HTML content -->
+    </section>
+    
+    <!-- Only complex interactive parts use React -->
+    <section class="registration">
+        <div id="react-registration-form"></div>
+    </section>
+    
+    <!-- Vanilla JS for simple interactions -->
+    <script src="./js/main.js"></script>
+    
+    <!-- React only for complex components -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="./js/registration-form-react.js"></script>
+    
+    <script>
+        // Mount React component only where needed
+        ReactDOM.render(
+            React.createElement(RegistrationForm),
+            document.getElementById('react-registration-form')
+        );
+    </script>
+</body>
+</html>
