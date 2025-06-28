@@ -6,8 +6,8 @@
 const CONFIG = {
     // Remove hardcoded URLs for security
     API_ENDPOINTS: {
-        REGISTRATION: process?.env?.REGISTRATION_ENDPOINT || '/api/register',
-        CONTACT: process?.env?.CONTACT_ENDPOINT || '/api/contact'
+        REGISTRATION: window.ENV?.REGISTRATION_ENDPOINT || '/api/register',
+        CONTACT: window.ENV?.CONTACT_ENDPOINT || '/api/contact'
     },
     ANIMATION: {
         FADE_IN_THRESHOLD: 0.1,
@@ -225,7 +225,7 @@ async function handleFormSubmission(e) {
     const formData = getFormData(form);
     
     // Show loading state
-    setSubmitButtonState(submitBtn, 'Submitting...', true);
+    setSubmitButtonState(submitBtn, 'Skickar...', true);
     
     try {
         // Send data to server (placeholder for now)
@@ -239,7 +239,7 @@ async function handleFormSubmission(e) {
         
     } catch (error) {
         console.error('Error submitting form:', error);
-        showErrorMessage('Sorry, there was an error submitting your registration. Please try again or contact us directly.');
+        showErrorMessage('Något gick fel vid skickning av anmälan. Försök igen eller kontakta oss direkt.');
     } finally {
         // Reset button state
         setSubmitButtonState(submitBtn, originalText, false);
@@ -360,7 +360,7 @@ function setSubmitButtonState(button, text, disabled) {
 }
 
 function showSuccessMessage() {
-    alert('Thank you for registering! We\'ll send you a confirmation email within 24 hours.');
+    alert('Tack för din anmälan! Vi skickar en bekräftelse via e-post inom 24 timmar.');
 }
 
 function showErrorMessage(message) {
