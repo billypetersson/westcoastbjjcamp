@@ -1,209 +1,345 @@
-# Westcoast BJJ Camp Website
+# West Coast BJJ Camp Website
 
-En modern, responsiv hemsida för Westcoast BJJ Camp i Strömstad, Sverige.
+A static website for West Coast BJJ Camp (Brazilian Jiu-Jitsu) hosted in Strömstad, Sweden. Built with HTML, CSS, and JavaScript for deployment on GitHub Pages.
 
-## 📁 Filstruktur
+🌐 **Live Site**: [www.westcoastbjjcamp.se](https://www.westcoastbjjcamp.se)
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Content Management](#content-management)
+- [Deployment](#deployment)
+- [Development](#development)
+- [Updating Content](#updating-content)
+- [Technical Details](#technical-details)
+
+## Overview
+
+This website provides information about West Coast BJJ Camp, including:
+
+- **Hem (Home)**: Welcome page with overview and call-to-action
+- **Instruktörer (Instructors)**: Profiles of BJJ instructors
+- **Priser (Pricing)**: Package details and pricing information
+- **Schema (Schedule)**: Detailed timetable for the 3-day camp
+- **Galleri (Gallery)**: Photo gallery from previous camps
+- **Bokning (Booking)**: Registration form for participants
+- **FAQ**: Frequently asked questions
+- **Om oss (About)**: Background and mission of the camp
+
+All content is in Swedish as requested, with this README in English for technical documentation.
+
+## Project Structure
 
 ```
-westcoast-bjj-camp/
-├── index.html              # Huvudsaklig HTML-fil
+west-coast-bjj-camp/
+├── index.html              # Home page (Hem)
 ├── css/
-│   └── style.css          # Alla stilmallar
+│   └── style.css           # Main stylesheet with responsive design
 ├── js/
-│   └── main.js           # JavaScript-funktioner
-├── images/
-│   ├── logo.svg          # Logotyp
-│   ├── hero-bg.jpg       # Hero-bakgrundsbild
-│   ├── og-image.jpg      # Social media delningsbild
-│   ├── apple-touch-icon.png
-│   ├── favicon.ico
-│   ├── icons/            # Ikoner för olika sektioner
-│   │   ├── location.svg
-│   │   ├── belt.svg
-│   │   ├── home.svg
-│   │   ├── community.svg
-│   │   ├── facebook.svg
-│   │   ├── instagram.svg
-│   │   └── youtube.svg
-│   ├── instructors/      # Instruktörsbilder
-│   │   ├── marcus.jpg
-│   │   ├── sofia.jpg
-│   │   └── guest.jpg
-│   └── gallery/          # Galleriblider
-│       ├── training-1.jpg
-│       ├── beach-training.jpg
-│       ├── group-photo.jpg
-│       ├── evening-bbq.jpg
-│       ├── open-mat.jpg
-│       └── sunrise-yoga.jpg
-└── README.md              # Denna fil
-
-## 🚀 Kom igång
-
-### 1. Ladda ner filerna
-Spara alla filer i rätt mappstruktur enligt ovan.
-
-### 2. Lägg till bilder
-Du behöver lägga till följande bilder:
-- **Hero-bakgrund** (1920x1080px rekommenderat)
-- **Logotyp** (SVG eller PNG, transparent bakgrund)
-- **Instruktörsfoton** (400x400px rekommenderat)
-- **Galleriblider** (minst 800x600px)
-- **Favicon** (16x16px och 32x32px)
-
-### 3. Anpassa innehåll
-Redigera `index.html` för att:
-- Uppdatera text och information
-- Ändra datum för lägret
-- Uppdatera priser
-- Lägga till rätt kontaktinformation
-- Uppdatera sociala medier-länkar
-
-### 4. Konfigurera formulär
-Formuläret behöver anslutas till en backend-tjänst. Välj ett alternativ:
-
-#### Alternativ A: Google Sheets
-1. Skapa ett Google Apps Script
-2. Koppla till ett Google Sheets-dokument
-3. Uppdatera URL:en i `main.js`
-
-#### Alternativ B: Mailchimp
-1. Skapa ett Mailchimp-konto
-2. Skapa en lista och formulär
-3. Uppdatera URL:en i `main.js`
-
-#### Alternativ C: Egen server
-1. Skapa en server-endpoint som tar emot POST-requests
-2. Uppdatera URL:en i `main.js`
-
-## 📱 Funktioner
-
-- ✅ Fullt responsiv design
-- ✅ Smooth scrolling
-- ✅ Animationer vid scroll
-- ✅ FAQ accordion
-- ✅ Bildgalleri med lightbox
-- ✅ Formulärvalidering
-- ✅ SEO-optimerad
-- ✅ Snabb laddningstid
-
-## 🎨 Anpassning
-
-### Färger
-Ändra färgerna i `css/style.css`:
-```css
-:root {
-    --primary-blue: #2563eb;    /* Huvudfärg */
-    --light-blue: #dbeafe;      /* Ljus accent */
-    --dark-blue: #1e40af;       /* Mörk accent */
-}
+│   └── script.js           # JavaScript for interactivity
+├── images/                 # All images (currently placeholder files)
+│   ├── hero-bjj.jpg        # Main hero image
+│   ├── instructor-*.jpg    # Instructor photos
+│   ├── gallery-*.jpg       # Gallery images
+│   └── about-*.jpg         # About page images
+├── pages/                  # All other pages
+│   ├── instructors.html    # Instructor profiles
+│   ├── pricing.html        # Pricing packages
+│   ├── schedule.html       # Camp schedule
+│   ├── gallery.html        # Photo gallery
+│   ├── booking.html        # Registration form
+│   ├── faq.html           # FAQ with accordion
+│   └── about.html         # About the camp
+└── README.md              # This file
 ```
 
-### Typsnitt
-Sidan använder Inter från Google Fonts. För att ändra:
-1. Välj ett nytt typsnitt på [Google Fonts](https://fonts.google.com)
-2. Uppdatera `<link>` i `index.html`
-3. Ändra `font-family` i `css/style.css`
+## Content Management
 
-## 🌐 Publicering
+### Updating Instructors
 
-### GitHub Pages (Gratis)
-1. Skapa ett GitHub-repository
-2. Ladda upp alla filer
-3. Gå till Settings → Pages
-4. Välj "Deploy from a branch"
-5. Välj "main" branch
-6. Din sida publiceras på: `https://[användarnamn].github.io/[repo-namn]/`
+**File**: `pages/instructors.html`
 
-### Egen domän
-1. Köp domänen westcoastbjjcamp.se
-2. Lägg till en `CNAME`-fil med domännamnet
-3. Konfigurera DNS-inställningar hos din domänleverantör
+To add/edit instructor profiles:
 
-## 📧 E-postintegration
+1. Find the `features-grid` section
+2. Each instructor is a `card` element with:
+   - `card-image`: Photo (update `src` and `alt` attributes)
+   - `card-title`: Instructor name
+   - `card-text`: Belt level, bio, and credentials
 
-För att ta emot formulärdata via e-post:
-
-### SendGrid
-```javascript
-// Lägg till i main.js
-async function sendEmail(formData) {
-    const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
-        method: 'POST',
-        headers: {
-            'Authorization': 'Bearer YOUR_API_KEY',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            personalizations: [{
-                to: [{ email: 'info@westcoastbjjcamp.se' }]
-            }],
-            from: { email: 'noreply@westcoastbjjcamp.se' },
-            subject: 'Ny registrering - Westcoast BJJ Camp',
-            content: [{
-                type: 'text/html',
-                value: `
-                    <h2>Ny registrering</h2>
-                    <p><strong>Namn:</strong> ${formData.fullName}</p>
-                    <p><strong>E-post:</strong> ${formData.email}</p>
-                    <p><strong>Telefon:</strong> ${formData.phone}</p>
-                    <p><strong>Bälte:</strong> ${formData.beltLevel}</p>
-                `
-            }]
-        })
-    });
-}
+**Example instructor card:**
+```html
+<div class="card">
+    <img src="../images/instructor-1.jpg" alt="Magnus Andersson" class="card-image">
+    <div class="card-content">
+        <h3 class="card-title">Magnus Andersson</h3>
+        <p class="card-text"><strong>Svart bälte, 3:e dan</strong></p>
+        <p class="card-text">Instructor bio and background...</p>
+        <p class="card-text"><em>Certifications or achievements</em></p>
+    </div>
+</div>
 ```
 
-## 🔍 SEO-tips
+### Updating Pricing
 
-1. **Uppdatera meta-taggar** i `index.html`
-2. **Lägg till strukturerad data** för event
-3. **Skapa en sitemap.xml**
-4. **Lägg till robots.txt**
-5. **Optimera bildstorlekar** (använd WebP-format)
+**File**: `pages/pricing.html`
 
-## 📊 Analytics
+1. **Main packages**: Update the `pricing-grid` section
+2. **Additional services**: Update the table in `table-container`
+3. **Important info**: Update the `info-grid` cards
 
-Lägg till Google Analytics eller Plausible:
+**Package structure:**
+```html
+<div class="pricing-card [featured]">
+    <h3 class="pricing-title">Package Name</h3>
+    <div class="pricing-price">2,950 <span style="font-size: 1rem;">SEK</span></div>
+    <p class="pricing-period">Duration description</p>
+    <ul class="pricing-features">
+        <li>✅ Included feature</li>
+        <li>❌ Not included feature</li>
+    </ul>
+    <a href="booking.html" class="btn btn-primary">Choose Package</a>
+</div>
+```
+
+### Updating Schedule
+
+**File**: `pages/schedule.html`
+
+Each day has its own table. To modify:
+
+1. Find the relevant day section (Fredag/Lördag/Söndag)
+2. Edit rows in the `table` element
+3. Each row has: Time, Activity, Instructor, Description
+
+**Schedule row structure:**
+```html
+<tr>
+    <td><strong>15:00-16:30</strong></td>
+    <td>Activity Name</td>
+    <td>Instructor Name</td>
+    <td>Activity description</td>
+</tr>
+```
+
+### Updating Gallery
+
+**File**: `pages/gallery.html`
+
+1. Add images to the `/images/` folder
+2. Update the `gallery-grid` sections
+3. Each gallery item includes image and caption
+
+**Gallery item structure:**
+```html
+<div class="gallery-item">
+    <img src="../images/gallery-image.jpg" alt="Description" loading="lazy">
+    <div class="gallery-caption">
+        <h4>Image Title</h4>
+        <p>Image description</p>
+    </div>
+</div>
+```
+
+### Updating FAQ
+
+**File**: `pages/faq.html`
+
+FAQ uses accordion-style collapsible sections:
 
 ```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'YOUR_ID');
-</script>
+<div class="faq-item">
+    <button class="faq-question">
+        Your question here?
+        <span class="faq-icon">▼</span>
+    </button>
+    <div class="faq-answer">
+        <p>Your detailed answer here...</p>
+    </div>
+</div>
 ```
 
-## 🐛 Felsökning
+The JavaScript automatically handles the accordion functionality.
 
-### Bilder visas inte
-- Kontrollera filsökvägar
-- Se till att bilderna ligger i rätt mappar
-- Kontrollera filnamn (case-sensitive)
+### Updating Booking Form
 
-### Formulär fungerar inte
-- Öppna utvecklarkonsolen (F12)
-- Kontrollera för JavaScript-fel
-- Verifiera att backend-URL är korrekt
+**File**: `pages/booking.html`
 
-### Mobilmenyn fungerar inte
-- Kontrollera att JavaScript laddas
-- Verifiera att ID:n matchar mellan HTML och JS
+The booking form includes dynamic pricing calculation. To modify:
 
-## 📞 Support
+1. **Form fields**: Add/edit fields in the form
+2. **Pricing logic**: Update the JavaScript at the bottom of the file
+3. **Package options**: Update the `package` select dropdown
 
-För hjälp med hemsidan, kontakta:
-- E-post: [din-email@exempel.se]
-- GitHub Issues: [github.com/ditt-användarnamn/westcoast-bjj-camp/issues]
+**Key variables to update:**
+```javascript
+const packagePrices = {
+    'day-pass-friday': 450,
+    'basic-package': 1200,
+    'full-package': 2950
+};
+```
 
-## 📄 Licens
+## Deployment
 
-Detta projekt är skapat för Westcoast BJJ Camp. Alla rättigheter förbehållna.
+### GitHub Pages Setup
+
+1. **Create GitHub repository**: Name it appropriately for your domain
+2. **Upload files**: Push all files to the repository
+3. **Enable GitHub Pages**:
+   - Go to repository Settings
+   - Scroll to "Pages" section
+   - Select "Deploy from a branch"
+   - Choose "main" branch and "/ (root)" folder
+   - Save settings
+
+4. **Custom domain** (for www.westcoastbjjcamp.se):
+   - Add `CNAME` file to root with your domain
+   - Configure DNS settings at your domain provider
+   - Add CNAME record pointing to `yourusername.github.io`
+
+### DNS Configuration
+
+For the domain `www.westcoastbjjcamp.se`:
+
+```
+Type: CNAME
+Name: www
+Value: yourusername.github.io
+```
+
+### SSL Certificate
+
+GitHub Pages automatically provides SSL certificates for custom domains. Ensure "Enforce HTTPS" is enabled in repository settings.
+
+## Development
+
+### Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/west-coast-bjj-camp.git
+   cd west-coast-bjj-camp
+   ```
+
+2. **Serve locally**: Use any local server:
+   ```bash
+   # Python 3
+   python -m http.server 8000
+   
+   # Python 2
+   python -m SimpleHTTPServer 8000
+   
+   # Node.js (if you have live-server installed)
+   npx live-server
+   ```
+
+3. **Open in browser**: Visit `http://localhost:8000`
+
+### Making Changes
+
+1. Edit HTML/CSS/JS files as needed
+2. Test changes locally
+3. Commit and push to GitHub
+4. Changes automatically deploy to GitHub Pages
+
+## Updating Content
+
+### Regular Updates
+
+**Before each camp:**
+1. Update dates in `schedule.html`
+2. Update pricing if changed in `pricing.html`
+3. Add new instructor photos and bios in `instructors.html`
+4. Update FAQ with new common questions
+
+**After each camp:**
+1. Add new photos to gallery
+2. Update testimonials in `about.html`
+3. Update "previous camp" references
+
+### Images
+
+**Recommended image sizes:**
+- **Hero image**: 1200x600px
+- **Instructor photos**: 400x400px (square)
+- **Gallery images**: 800x600px
+- **About page images**: 600x400px
+
+**Optimization tips:**
+- Keep file sizes under 500KB for web performance
+- Use JPG for photos, PNG for graphics with transparency
+- Include descriptive alt text for accessibility
+
+### Contact Information
+
+Update contact details in:
+- Footer of all pages
+- `pages/booking.html`
+- `pages/faq.html`
+
+**Current contact info:**
+- Email: info@westcoastbjjcamp.se
+- Phone: +46 72 294 93 39
+
+## Technical Details
+
+### Technologies Used
+
+- **HTML5**: Semantic markup
+- **CSS3**: Flexbox, Grid, Custom Properties
+- **JavaScript**: ES6+, DOM manipulation
+- **Fonts**: Google Fonts (Inter)
+
+### Browser Support
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Mobile Safari (iOS 14+)
+- Chrome Mobile
+
+### Performance Features
+
+- **Responsive design**: Mobile-first approach
+- **Lazy loading**: Images load as needed
+- **Semantic HTML**: Proper heading structure
+- **Accessibility**: ARIA labels, keyboard navigation
+- **SEO optimized**: Meta descriptions, structured data
+
+### JavaScript Features
+
+- **Mobile navigation**: Hamburger menu toggle
+- **FAQ accordion**: Collapsible Q&A sections
+- **Image gallery**: Lightbox functionality
+- **Form validation**: Client-side validation
+- **Dynamic pricing**: Booking form price calculator
+- **Smooth scrolling**: Enhanced navigation
+
+### CSS Architecture
+
+- **CSS Custom Properties**: Consistent theming
+- **Mobile-first**: Responsive breakpoints
+- **Component-based**: Reusable classes
+- **Print styles**: Printer-friendly layouts
+
+### Maintenance
+
+**Monthly tasks:**
+- Check all links work
+- Verify form submissions
+- Update camp dates/prices as needed
+- Add new gallery photos
+
+**Annual tasks:**
+- Review and update instructor bios
+- Update testimonials
+- Refresh FAQ content
+- Update pricing structure
 
 ---
 
-Skapad med ❤️ för BJJ-communityn
+For technical support or questions about updating the website, contact the development team or refer to this documentation.
+
+**Happy coding! 🥋**

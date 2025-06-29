@@ -1,498 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Westcoast BJJ Camp - Experience world-class Brazilian Jiu-Jitsu training by the Swedish coast in beautiful Strömstad. July 15-21, 2025.">
-    <meta name="keywords" content="BJJ, Brazilian Jiu Jitsu, Sweden, Strömstad, martial arts camp, summer camp">
-    <meta name="author" content="Westcoast BJJ Camp">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://westcoastbjjcamp.se/">
-    <meta property="og:title" content="Westcoast BJJ Camp - Summer Training in Strömstad">
-    <meta property="og:description" content="Join us for an unforgettable week of BJJ training by the Swedish coast. All levels welcome!">
-    <meta property="og:image" content="images/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://westcoastbjjcamp.se/">
-    <meta property="twitter:title" content="Westcoast BJJ Camp - Summer Training in Strömstad">
-    <meta property="twitter:description" content="Join us for an unforgettable week of BJJ training by the Swedish coast. All levels welcome!">
-    <meta property="twitter:image" content="images/og-image.jpg">
-
-    <title>Westcoast BJJ Camp - Summer Training in Strömstad, Sweden</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    
-    <!-- CSS -->
+    <title>West Coast BJJ Camp - Strömstad, Sverige</title>
+    <meta name="description" content="Träna Brazilian Jiu-Jitsu vid Sveriges västkust. West Coast BJJ Camp i Strömstad - träning, gemenskap och inspiration.">
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="images/logo.svg" alt="Westcoast BJJ Camp" width="40" height="40">
-                <span>Westcoast BJJ</span>
-            </a>
-            <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#instructors">Instructors</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#register" class="register-btn">Register</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-background">
-            <img src="images/hero-bg.jpg" alt="BJJ training by the Swedish coast" loading="eager">
-        </div>
-        <div class="hero-content">
-            <h1>Westcoast BJJ Camp</h1>
-            <p class="hero-subtitle">Train by the Swedish Coast in Beautiful Strömstad</p>
-            <p class="hero-date">July 15-21, 2025</p>
-            <a href="#register" class="cta-button">Sign Up Now</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About the Camp</h2>
-            <p class="section-subtitle">Experience world-class BJJ training in the heart of Swedish summer</p>
-            
-            <div class="about-grid">
-                <div class="about-card fade-in">
-                    <div class="about-icon">
-                        <img src="images/icons/location.svg" alt="Location" width="48" height="48">
-                    </div>
-                    <h3>Perfect Location</h3>
-                    <p>Located in beautiful Strömstad on Sweden's west coast, enjoy training with ocean views and fresh sea air.</p>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="images/westcoastlogo.webp" alt="West Coast BJJ Camp Logo" class="logo-img">
+                        <h1>West Coast BJJ Camp</h1>
+                    </a>
                 </div>
-                <div class="about-card fade-in">
-                    <div class="about-icon">
-                        <img src="images/icons/belt.svg" alt="All levels" width="48" height="48">
-                    </div>
-                    <h3>All Levels Welcome</h3>
-                    <p>From white belts to black belts, our camp offers tailored instruction for every skill level.</p>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link active">Hem</a>
+                    <a href="pages/instructors.html" class="nav-link">Instruktörer</a>
+                    <a href="pages/pricing.html" class="nav-link">Priser</a>
+                    <a href="pages/schedule.html" class="nav-link">Schema</a>
+                    <a href="pages/gallery.html" class="nav-link">Galleri</a>
+                    <a href="pages/booking.html" class="nav-link">Bokning</a>
+                    <a href="pages/faq.html" class="nav-link">FAQ</a>
+                    <a href="pages/about.html" class="nav-link">Om oss</a>
                 </div>
-                <div class="about-card fade-in">
-                    <div class="about-icon">
-                        <img src="images/icons/home.svg" alt="All inclusive" width="48" height="48">
-                    </div>
-                    <h3>All Inclusive</h3>
-                    <p>Training, accommodation, and healthy meals included. Just bring your gear and passion for BJJ!</p>
-                </div>
-                <div class="about-card fade-in">
-                    <div class="about-icon">
-                        <img src="images/icons/community.svg" alt="Community" width="48" height="48">
-                    </div>
-                    <h3>Community</h3>
-                    <p>Connect with BJJ practitioners from around the world in a supportive, friendly environment.</p>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- Schedule Section -->
-    <section class="schedule" id="schedule">
-        <div class="container">
-            <h2>Daily Schedule</h2>
-            <p class="section-subtitle">A perfect balance of training, learning, and recovery</p>
-            
-            <div class="schedule-container fade-in">
-                <div class="schedule-day">
-                    <h3>Typical Training Day</h3>
-                    <div class="schedule-item">
-                        <span class="schedule-time">07:00 - 08:00</span>
-                        <span>Morning yoga and mobility session on the beach</span>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Välkommen till West Coast BJJ Camp</h1>
+                    <p class="hero-subtitle">Träna Brazilian Jiu-Jitsu vid Sveriges vackra västkust i Strömstad</p>
+                    <p class="hero-description">
+                        Upplev intensiv träning med erfarna instruktörer, bygga nya vänskaper och 
+                        utveckla din BJJ-teknik i en inspirerande miljö vid havet.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="pages/booking.html" class="btn btn-primary btn-large">Boka din plats nu →</a>
+                        <a href="pages/pricing.html" class="btn btn-secondary">Se priser</a>
                     </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">08:00 - 09:00</span>
-                        <span>Healthy breakfast buffet</span>
+                </div>
+                <div class="hero-logo">
+                    <img src="images/westcoastlogo.webp" alt="West Coast BJJ Camp Logo" class="hero-logo-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Varför välja West Coast BJJ Camp?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🥋</div>
+                        <h3>Expertinstruktörer</h3>
+                        <p>Träna med erfarna BJJ-instruktörer från hela Sverige och utomlands</p>
                     </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">10:00 - 12:00</span>
-                        <span>Morning technique session (Gi)</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌊</div>
+                        <h3>Unik plats</h3>
+                        <p>Strömstad vid västkusten erbjuder en vacker och inspirerande träningsmiljö</p>
                     </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">12:30 - 14:00</span>
-                        <span>Lunch and rest</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Gemenskap</h3>
+                        <p>Träffa och träna med BJJ-utövare från olika klubbar och bakgrunder</p>
                     </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">15:00 - 16:30</span>
-                        <span>Afternoon drilling and specific training</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">17:00 - 18:30</span>
-                        <span>Open mat and rolling sessions</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">19:00 - 20:00</span>
-                        <span>Dinner together</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="schedule-time">20:30 - 21:30</span>
-                        <span>Evening activities (sauna, swimming, or technique review)</span>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Utveckling</h3>
+                        <p>Intensiv träning som tar din BJJ till nästa nivå</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Instructors Section -->
-    <section class="instructors" id="instructors">
-        <div class="container">
-            <h2>World-Class Instructors</h2>
-            <p class="section-subtitle">Learn from the best in the business</p>
-            
-            <div class="instructor-grid">
-                <div class="instructor-card fade-in">
-                    <div class="instructor-image">
-                        <img src="images/instructors/marcus.jpg" alt="Marcus Andersson" loading="lazy">
+        <section class="camp-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📍 Plats</h3>
+                        <p><strong>Strömstad, Sverige</strong></p>
+                        <p>En av Sveriges vackraste kustorter vid gränsen till Norge</p>
                     </div>
-                    <div class="instructor-info">
-                        <h3 class="instructor-name">Marcus "Viking" Andersson</h3>
-                        <p class="instructor-rank">Black Belt, 3rd Degree</p>
-                        <p>Head instructor with 20 years experience. Multiple-time European champion and ADCC veteran.</p>
+                    <div class="info-card">
+                        <h3>📅 Datum</h3>
+                        <p><strong>12-14 Juli 2024</strong></p>
+                        <p>3 dagar intensiv BJJ-träning och gemenskap</p>
                     </div>
-                </div>
-                <div class="instructor-card fade-in">
-                    <div class="instructor-image">
-                        <img src="images/instructors/sofia.jpg" alt="Sofia Lindberg" loading="lazy">
-                    </div>
-                    <div class="instructor-info">
-                        <h3 class="instructor-name">Sofia Lindberg</h3>
-                        <p class="instructor-rank">Black Belt, 2nd Degree</p>
-                        <p>Women's division specialist. World champion and expert in guard retention and submissions.</p>
-                    </div>
-                </div>
-                <div class="instructor-card fade-in">
-                    <div class="instructor-image">
-                        <img src="images/instructors/guest.jpg" alt="Guest Instructor" loading="lazy">
-                    </div>
-                    <div class="instructor-info">
-                        <h3 class="instructor-name">Guest Instructor TBA</h3>
-                        <p class="instructor-rank">Special Guest</p>
-                        <p>We'll announce our special international guest instructor in Spring 2025!</p>
+                    <div class="info-card">
+                        <h3>🎯 För vem</h3>
+                        <p><strong>Alla nivåer välkomna</strong></p>
+                        <p>Från nybörjare till avancerade utövare</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2>Camp Packages</h2>
-            <p class="section-subtitle">Choose the package that suits you best</p>
-            
-            <div class="pricing-cards">
-                <div class="pricing-card fade-in">
-                    <h3>Early Bird</h3>
-                    <div class="price">
-                        <span class="price-currency">€</span>899
-                    </div>
-                    <p class="price-subtitle">Book before March 1st</p>
-                    <ul class="pricing-features">
-                        <li>All training sessions</li>
-                        <li>Shared accommodation</li>
-                        <li>All meals included</li>
-                        <li>Camp t-shirt</li>
-                        <li>Certificate of completion</li>
-                    </ul>
-                    <a href="#register" class="cta-button">Book Now</a>
-                </div>
-                
-                <div class="pricing-card featured fade-in">
-                    <div class="featured-badge">Most Popular</div>
-                    <h3>Regular Price</h3>
-                    <div class="price">
-                        <span class="price-currency">€</span>999
-                    </div>
-                    <p class="price-subtitle">Standard registration</p>
-                    <ul class="pricing-features">
-                        <li>All training sessions</li>
-                        <li>Shared accommodation</li>
-                        <li>All meals included</li>
-                        <li>Camp t-shirt</li>
-                        <li>Certificate of completion</li>
-                    </ul>
-                    <a href="#register" class="cta-button">Book Now</a>
-                </div>
-                
-                <div class="pricing-card fade-in">
-                    <h3>Group Discount</h3>
-                    <div class="price">
-                        <span class="price-currency">€</span>849
-                    </div>
-                    <p class="price-subtitle">For groups of 5+</p>
-                    <ul class="pricing-features">
-                        <li>All training sessions</li>
-                        <li>Shared accommodation</li>
-                        <li>All meals included</li>
-                        <li>Camp t-shirt</li>
-                        <li>Certificate of completion</li>
-                    </ul>
-                    <a href="#register" class="cta-button">Book Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2>Camp Memories</h2>
-            <p class="section-subtitle">See what makes our camp special</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in">
-                    <img src="images/gallery/training-1.jpg" alt="Training on the mats" loading="lazy">
-                    <div class="gallery-overlay">
-                        <p>Training on the Mats</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="images/gallery/beach-training.jpg" alt="Beach training session" loading="lazy">
-                    <div class="gallery-overlay">
-                        <p>Beach Training</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="images/gallery/group-photo.jpg" alt="Group photo 2024" loading="lazy">
-                    <div class="gallery-overlay">
-                        <p>Group Photo 2024</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="images/gallery/evening-bbq.jpg" alt="Evening BBQ" loading="lazy">
-                    <div class="gallery-overlay">
-                        <p>Evening BBQ</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="images/gallery/open-mat.jpg" alt="Open mat sessions" loading="lazy">
-                    <div class="gallery-overlay">
-                        <p>Open Mat Sessions</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="images/gallery/sunrise-yoga.jpg" alt="Sunrise yoga" loading="lazy">
-                    <div class="gallery-overlay">
-                        <p>Sunrise Yoga</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Section -->
-    <section class="registration" id="register">
-        <div class="container">
-            <h2>Register for Camp</h2>
-            <p class="section-subtitle">Secure your spot today!</p>
-            
-            <form class="registration-form fade-in" id="registrationForm">
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="beltLevel">BJJ Belt Level *</label>
-                    <select id="beltLevel" name="beltLevel" required>
-                        <option value="">Select your belt level</option>
-                        <option value="white">White Belt</option>
-                        <option value="blue">Blue Belt</option>
-                        <option value="purple">Purple Belt</option>
-                        <option value="brown">Brown Belt</option>
-                        <option value="black">Black Belt</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="dietary">Dietary Preferences/Allergies</label>
-                    <textarea id="dietary" name="dietary" rows="3" placeholder="Please list any dietary requirements or allergies"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="tshirtSize">T-shirt Size</label>
-                    <select id="tshirtSize" name="tshirtSize">
-                        <option value="">Select size (optional)</option>
-                        <option value="xs">XS</option>
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                        <option value="xxl">XXL</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="comments">Comments</label>
-                    <textarea id="comments" name="comments" rows="3" placeholder="Any questions or special requests?"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Submit Registration</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <p class="section-subtitle">Got questions? We've got answers!</p>
-            
-            <div class="faq-container">
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Do I need to bring a gi?
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, please bring at least 2 gis as we'll have multiple training sessions per day. We'll also have no-gi sessions, so bring rashguards and shorts/spats. There's laundry service available at the accommodation.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Is the camp beginner friendly?
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely! We welcome practitioners of all levels. Classes are structured to accommodate everyone, with techniques broken down step-by-step. Advanced students will get additional details and variations.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Where do we sleep?
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Accommodation is in shared cabins (4-6 people per cabin) at a beautiful facility just 5 minutes from the training venue. Single rooms are available for an additional fee. All cabins have private bathrooms and are very comfortable.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        What about meals?
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>All meals are included and prepared by professional chefs. We offer a variety of healthy options including vegetarian and vegan choices. Please indicate any dietary restrictions when registering.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        How do I get to Strömstad?
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Strömstad is easily accessible by train from Gothenburg (2 hours) or Oslo (2.5 hours). We can arrange group transfers from Gothenburg airport for those arriving on the same day. Detailed travel information will be sent upon registration.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        What's the cancellation policy?
-                        <span class="faq-icon"></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Full refund if cancelled 60+ days before camp. 50% refund if cancelled 30-59 days before. No refund within 30 days of camp start, but you can transfer your spot to another person.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Contact & Location</h2>
-            <p class="section-subtitle">We're here to help with any questions</p>
-            
-            <div class="contact-grid">
-                <div class="contact-info fade-in">
-                    <h3>Get in Touch</h3>
-                    <p><a href="mailto:info@westcoastbjjcamp.se">📧 info@westcoastbjjcamp.se</a></p>
-                    <p><a href="tel:+46701234567">📱 +46 70 123 45 67</a></p>
-                    <p>📍 Strömstad Sports Center<br>
-                       Uddevallavägen 15<br>
-                       452 30 Strömstad, Sweden</p>
-                    
-                    <div class="social-section">
-                        <h3>Follow Us</h3>
-                        <div class="social-links">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <img src="images/icons/facebook.svg" alt="Facebook" width="24" height="24">
-                            </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <img src="images/icons/instagram.svg" alt="Instagram" width="24" height="24">
-                            </a>
-                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                <img src="images/icons/youtube.svg" alt="YouTube" width="24" height="24">
-                            </a>
+        <section class="contact-highlight">
+            <div class="container">
+                <div class="contact-content">
+                    <h2>Har du frågor?</h2>
+                    <p>Kontakta oss för mer information om West Coast BJJ Camp</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:info@westcoastbjjcamp.se">info@westcoastbjjcamp.se</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <a href="tel:+46722949339">+46 72 294 93 39</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="map-container fade-in">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2047.5!2d11.1717!3d58.9370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTjCsDU2JzEzLjIiTiAxMcKwMTAnMTguMSJF!5e0!3m2!1sen!2sse!4v1620000000000!5m2!1sen!2sse" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy"
-                        title="Location of Westcoast BJJ Camp in Strömstad">
-                    </iframe>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Redo att gå med?</h2>
+                    <p>Begränsat antal platser. Boka din plats idag för att säkra din deltagande i West Coast BJJ Camp.</p>
+                    <a href="pages/booking.html" class="btn btn-primary btn-large">Boka din plats nu</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Westcoast BJJ Camp. All rights reserved.</p>
-            <p class="footer-subtitle">Made with ❤️ in Sweden</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>West Coast BJJ Camp</h3>
+                    <p>Brazilian Jiu-Jitsu träning vid Sveriges västkust</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 info@westcoastbjjcamp.se</p>
+                    <p>📱 +46 72 294 93 39</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snabblänkar</h4>
+                    <a href="pages/booking.html">Bokning</a>
+                    <a href="pages/pricing.html">Priser</a>
+                    <a href="pages/faq.html">FAQ</a>
+                    <a href="pages/about.html">Om oss</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 West Coast BJJ Camp. Alla rättigheter förbehållna.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

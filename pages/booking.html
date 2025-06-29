@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bokning - West Coast BJJ Camp</title>
+    <meta name="description" content="Boka din plats till West Coast BJJ Camp i Strömstad. Enkelt online-formulär för snabb registrering.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html">
+                        <img src="../images/westcoastlogo.webp" alt="West Coast BJJ Camp Logo" class="logo-img">
+                        <h1>West Coast BJJ Camp</h1>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="../index.html" class="nav-link">Hem</a>
+                    <a href="instructors.html" class="nav-link">Instruktörer</a>
+                    <a href="pricing.html" class="nav-link">Priser</a>
+                    <a href="schedule.html" class="nav-link">Schema</a>
+                    <a href="gallery.html" class="nav-link">Galleri</a>
+                    <a href="booking.html" class="nav-link active">Bokning</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                    <a href="about.html" class="nav-link">Om oss</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Boka din plats</h1>
+                <p>Registrera dig för West Coast BJJ Camp 2024 i Strömstad. Begränsat antal platser - säkra din plats idag!</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                    <div>
+                        <h2>Registreringsformulär</h2>
+                        <form id="booking-form" class="booking-form">
+                            <div class="form-group">
+                                <label for="fullName" class="form-label">Fullständigt namn *</label>
+                                <input type="text" id="fullName" name="fullName" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-postadress *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Telefonnummer *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthDate" class="form-label">Födelsedatum *</label>
+                                <input type="date" id="birthDate" name="birthDate" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bjjLevel" class="form-label">BJJ-nivå *</label>
+                                <select id="bjjLevel" name="bjjLevel" class="form-select" required>
+                                    <option value="">Välj din nivå</option>
+                                    <option value="beginner">Nybörjare (0-6 månader)</option>
+                                    <option value="white-belt">Vitt bälte</option>
+                                    <option value="blue-belt">Blått bälte</option>
+                                    <option value="purple-belt">Lila bälte</option>
+                                    <option value="brown-belt">Brunt bälte</option>
+                                    <option value="black-belt">Svart bälte</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="club" class="form-label">Nuvarande klubb/academy</label>
+                                <input type="text" id="club" name="club" class="form-input" placeholder="T.ex. Stockholm BJJ">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="package" class="form-label">Välj paket *</label>
+                                <select id="package" name="package" class="form-select" required>
+                                    <option value="">Välj paket</option>
+                                    <option value="day-pass-friday">Dagspass - Fredag (450 SEK)</option>
+                                    <option value="day-pass-saturday">Dagspass - Lördag (450 SEK)</option>
+                                    <option value="day-pass-sunday">Dagspass - Söndag (450 SEK)</option>
+                                    <option value="basic-package">Baspaket - Alla 3 dagar (1,200 SEK)</option>
+                                    <option value="full-package">Fullt paket - Med boende & mat (2,950 SEK)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="room-preference" style="display: none;">
+                                <label for="roomType" class="form-label">Rumstyp</label>
+                                <select id="roomType" name="roomType" class="form-select">
+                                    <option value="shared">Delat rum (inkluderat)</option>
+                                    <option value="private">Privat rum (+800 SEK)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tshirtSize" class="form-label">T-shirt storlek</label>
+                                <select id="tshirtSize" name="tshirtSize" class="form-select">
+                                    <option value="">Välj storlek</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dietaryRestrictions" class="form-label">Specialkost/Allergier</label>
+                                <textarea id="dietaryRestrictions" name="dietaryRestrictions" class="form-textarea" placeholder="Beskriv eventuella allergier eller specialkost..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emergencyContact" class="form-label">Nödkontakt (namn & telefon) *</label>
+                                <input type="text" id="emergencyContact" name="emergencyContact" class="form-input" placeholder="T.ex. Anna Andersson - 070-123 45 67" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="discountCode" class="form-label">Rabattkod</label>
+                                <input type="text" id="discountCode" name="discountCode" class="form-input" placeholder="T.ex. EARLY2024">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additionalInfo" class="form-label">Övrig information</label>
+                                <textarea id="additionalInfo" name="additionalInfo" class="form-textarea" placeholder="Är det något särskilt vi bör veta? Förväntningar, mål, frågor..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <input type="checkbox" id="terms" name="terms" required style="margin-right: 0.5rem;">
+                                    Jag accepterar <a href="#" style="color: var(--primary-color);">villkoren</a> och <a href="#" style="color: var(--primary-color);">integritetspolicyn</a> *
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter" style="margin-right: 0.5rem;">
+                                    Jag vill få nyhetsbrev om framtida camp och BJJ-events
+                                </label>
+                            </div>
+
+                            <button type="button" id="complete-booking-btn" class="btn btn-primary btn-large" style="width: 100%;">
+                                Slutför bokning →
+                            </button>
+                            <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">
+                                Du kommer att omdirigeras till vårt säkra bokningsformulär
+                            </p>
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="info-card" style="position: sticky; top: 90px;">
+                            <h3>📋 Bokningsinfo</h3>
+                            <div id="booking-summary">
+                                <p><strong>Valt paket:</strong> <span id="selected-package">Inget valt</span></p>
+                                <p><strong>Pris:</strong> <span id="package-price">0 SEK</span></p>
+                                <p><strong>Tillägg:</strong> <span id="extra-costs">0 SEK</span></p>
+                                <hr style="margin: 1rem 0; border: 1px solid var(--border-color);">
+                                <p><strong>Totalt:</strong> <span id="total-price" style="font-size: 1.2rem; color: var(--primary-color);">0 SEK</span></p>
+                            </div>
+
+                            <div style="margin-top: 2rem;">
+                                <h4>💳 Betalning</h4>
+                                <p>Efter att du skickat registreringen får du en bekräftelse via e-post med betalningsinstruktioner.</p>
+                                <p><strong>Accepterade betalmetoder:</strong></p>
+                                <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                    <li>Swish</li>
+                                    <li>Banköverföring</li>
+                                    <li>Kortbetalning</li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-top: 2rem;">
+                                <h4>📅 Viktiga datum</h4>
+                                <p><strong>Camp:</strong> 12-14 Juli 2024</p>
+                                <p><strong>Sista anmälan:</strong> 1 Juli 2024</p>
+                                <p><strong>Avbokning:</strong> Fram till 28 Juni</p>
+                            </div>
+
+                            <div style="margin-top: 2rem;">
+                                <h4>📞 Behöver du hjälp?</h4>
+                                <p>Kontakta oss:</p>
+                                <p>📧 info@westcoastbjjcamp.se</p>
+                                <p>📱 +46 72 294 93 39</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Vad händer efter bokningen?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✉️</div>
+                        <h3>1. Bekräftelse</h3>
+                        <p>Du får en bekräftelse via e-post inom 24 timmar med all viktig information och betalningsinstruktioner.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💳</div>
+                        <h3>2. Betalning</h3>
+                        <p>Betala enligt instruktionerna i bekräftelsen. Din plats är reserverad i 7 dagar efter registrering.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📦</div>
+                        <h3>3. Välkomstpaket</h3>
+                        <p>2 veckor före campen får du ett välkomstpaket med detaljerad information och packlista.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>4. Camp-dag!</h3>
+                        <p>Ankom till Strömstad och njut av tre fantastiska dagar med BJJ-träning vid västkusten!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>West Coast BJJ Camp</h3>
+                    <p>Brazilian Jiu-Jitsu träning vid Sveriges västkust</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 info@westcoastbjjcamp.se</p>
+                    <p>📱 +46 72 294 93 39</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snabblänkar</h4>
+                    <a href="booking.html">Bokning</a>
+                    <a href="pricing.html">Priser</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="about.html">Om oss</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 West Coast BJJ Camp. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Google Forms Integration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Complete booking button handler
+            document.getElementById('complete-booking-btn').addEventListener('click', function() {
+                // Validate required fields first
+                const form = document.getElementById('booking-form');
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#ef4444';
+                        field.addEventListener('input', function() {
+                            this.style.borderColor = '#e5e7eb';
+                        });
+                    } else {
+                        field.style.borderColor = '#e5e7eb';
+                    }
+                });
+                
+                if (!isValid) {
+                    showMessage('Vänligen fyll i alla obligatoriska fält innan du fortsätter.', 'error');
+                    return;
+                }
+                
+                // Collect form data
+                const formData = {
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    birthDate: document.getElementById('birthDate').value,
+                    bjjLevel: document.getElementById('bjjLevel').value,
+                    club: document.getElementById('club').value,
+                    package: document.getElementById('package').value,
+                    roomType: document.getElementById('roomType').value,
+                    tshirtSize: document.getElementById('tshirtSize').value,
+                    dietaryRestrictions: document.getElementById('dietaryRestrictions').value,
+                    emergencyContact: document.getElementById('emergencyContact').value,
+                    discountCode: document.getElementById('discountCode').value,
+                    additionalInfo: document.getElementById('additionalInfo').value,
+                    terms: document.getElementById('terms').checked,
+                    newsletter: document.getElementById('newsletter').checked
+                };
+                
+                // Create Google Forms URL with pre-filled data
+                // You'll need to replace 'YOUR_GOOGLE_FORM_ID' with your actual form ID
+                const googleFormUrl = createGoogleFormUrl(formData);
+                
+                // Show confirmation and redirect
+                showBookingConfirmation(googleFormUrl);
+            });
+        });
+        
+        function createGoogleFormUrl(data) {
+            // This will be your Google Form URL with pre-filled parameters
+            // Format: https://docs.google.com/forms/d/YOUR_FORM_ID/viewform?usp=pp_url&entry.XXXXX=value
+            
+            // For now, return a placeholder - you'll need to update this with your actual Google Form
+            const baseUrl = 'https://docs.google.com/forms/d/YOUR_GOOGLE_FORM_ID/viewform';
+            
+            // Example pre-filled parameters (you'll get these from Google Forms)
+            const params = new URLSearchParams({
+                'usp': 'pp_url',
+                // Add your actual entry IDs here when you create the Google Form
+                // 'entry.123456789': data.name,
+                // 'entry.987654321': data.email,
+                // etc.
+            });
+            
+            return `${baseUrl}?${params.toString()}`;
+        }
+        
+        function showBookingConfirmation(googleFormUrl) {
+            // Create modal overlay
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 2000;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: white;
+                    border-radius: 12px;
+                    padding: 2rem;
+                    max-width: 500px;
+                    margin: 1rem;
+                    text-align: center;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                ">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Nästan klar!</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-light);">
+                        Dina uppgifter är kontrollerade. Klicka nedan för att slutföra din bokning 
+                        via vårt säkra formulär.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button onclick="window.open('${googleFormUrl}', '_blank')" 
+                                style="
+                                    background: var(--primary-color);
+                                    color: white;
+                                    border: none;
+                                    padding: 1rem 2rem;
+                                    border-radius: 8px;
+                                    font-weight: 500;
+                                    cursor: pointer;
+                                    transition: all 0.3s ease;
+                                "
+                                onmouseover="this.style.background='var(--primary-dark)'"
+                                onmouseout="this.style.background='var(--primary-color)'">
+                            Öppna bokningsformulär
+                        </button>
+                        <button onclick="document.body.removeChild(this.parentElement.parentElement.parentElement)"
+                                style="
+                                    background: transparent;
+                                    color: var(--text-light);
+                                    border: 2px solid var(--border-color);
+                                    padding: 1rem 2rem;
+                                    border-radius: 8px;
+                                    font-weight: 500;
+                                    cursor: pointer;
+                                ">
+                            Stäng
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Auto-remove modal after 30 seconds
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    document.body.removeChild(modal);
+                }
+            }, 30000);
+        }
+        
+        // Booking form dynamic pricing
+        document.addEventListener('DOMContentLoaded', function() {
+            const packageSelect = document.getElementById('package');
+            const roomSelect = document.getElementById('roomType');
+            const roomPreference = document.getElementById('room-preference');
+            
+            const selectedPackageSpan = document.getElementById('selected-package');
+            const packagePriceSpan = document.getElementById('package-price');
+            const extraCostsSpan = document.getElementById('extra-costs');
+            const totalPriceSpan = document.getElementById('total-price');
+            
+            const packagePrices = {
+                'day-pass-friday': 450,
+                'day-pass-saturday': 450,
+                'day-pass-sunday': 450,
+                'basic-package': 1200,
+                'full-package': 2950
+            };
+            
+            const packageNames = {
+                'day-pass-friday': 'Dagspass - Fredag',
+                'day-pass-saturday': 'Dagspass - Lördag',
+                'day-pass-sunday': 'Dagspass - Söndag',
+                'basic-package': 'Baspaket (3 dagar)',
+                'full-package': 'Fullt paket (3 dagar)'
+            };
+            
+            function updatePricing() {
+                const selectedPackage = packageSelect.value;
+                const selectedRoom = roomSelect.value;
+                
+                if (selectedPackage) {
+                    selectedPackageSpan.textContent = packageNames[selectedPackage];
+                    packagePriceSpan.textContent = packagePrices[selectedPackage] + ' SEK';
+                    
+                    // Show room preference for full package
+                    if (selectedPackage === 'full-package') {
+                        roomPreference.style.display = 'block';
+                    } else {
+                        roomPreference.style.display = 'none';
+                        roomSelect.value = 'shared';
+                    }
+                    
+                    // Calculate extras
+                    let extras = 0;
+                    if (selectedRoom === 'private' && selectedPackage === 'full-package') {
+                        extras += 800;
+                    }
+                    
+                    extraCostsSpan.textContent = extras + ' SEK';
+                    totalPriceSpan.textContent = (packagePrices[selectedPackage] + extras) + ' SEK';
+                } else {
+                    selectedPackageSpan.textContent = 'Inget valt';
+                    packagePriceSpan.textContent = '0 SEK';
+                    extraCostsSpan.textContent = '0 SEK';
+                    totalPriceSpan.textContent = '0 SEK';
+                    roomPreference.style.display = 'none';
+                }
+            }
+            
+            packageSelect.addEventListener('change', updatePricing);
+            roomSelect.addEventListener('change', updatePricing);
+            
+            // Initialize
+            updatePricing();
+        });
+    </script>
+</body>
+</html>
