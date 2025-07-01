@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(snap list:*)",
+      "Bash(curl:*)",
+      "Bash(tar:*)",
+      "Bash(chmod:*)",
+      "Bash(./hugo version)",
+      "Bash(./hugo --buildDrafts --buildFuture 2>&1)",
+      "Bash(timeout:*)",
+      "Bash(mv:*)",
+      "Bash(./hugo --buildDrafts --buildFuture --cleanDestinationDir 2>&1)",
+      "Bash(grep:*)",
+      "Bash(./hugo:*)",
+      "Bash(rm:*)",
+      "Bash(cat:*)"
+    ],
+    "deny": []
+  }
+}

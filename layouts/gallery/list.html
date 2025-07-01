@@ -1,0 +1,64 @@
+{{ define "main" }}
+<section class="page-header">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description | default .Summary }}</p>
+    </div>
+</section>
+
+{{ with .Params.gallery_sections }}
+{{ range . }}
+<section class="content-section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">{{ .title }}</h2>
+        <div class="gallery-grid">
+            {{ range .images }}
+            <div class="gallery-item">
+                <img src="{{ "/" | relURL }}{{ .src }}" alt="{{ .alt }}" loading="lazy">
+                <div class="gallery-caption">
+                    <h3>{{ .caption_title }}</h3>
+                    <p>{{ .caption_text }}</p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ with .Params.testimonials }}
+<section class="content-section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Vad deltagarna säger</h2>
+        <div class="features-grid">
+            {{ range . }}
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <p style="font-style: italic; margin-bottom: 1rem;">"{{ .text }}"</p>
+                <p style="font-weight: 600; color: var(--primary-color);">– {{ .name }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+<section class="content-section">
+    <div class="container">
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Bli en del av nästa camp</h2>
+            <p>Skapa egna minnen vid West Coast BJJ Camp 2025.</p>
+            <a href="{{ "/booking/" | relURL }}" class="btn btn-primary btn-large">Boka din plats</a>
+        </div>
+    </div>
+</section>
+{{ end }}

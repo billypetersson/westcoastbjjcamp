@@ -1,0 +1,78 @@
+baseURL = "https://westcoastbjjcamp.se"
+languageCode = "sv-SE"
+title = "West Coast BJJ Camp - Strömstad, Sverige"
+# theme = ""
+
+# Build settings
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+
+# Output formats
+[outputFormats]
+  [outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "index"
+  
+# Minification settings for production
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+
+# SEO and social media
+[author]
+  name = "West Coast BJJ Camp"
+  email = "info@westcoastbjjcamp.se"
+
+[params]
+  description = "Träna Brazilian Jiu-Jitsu vid Sveriges västkust. West Coast BJJ Camp i Strömstad - träning, gemenskap och inspiration."
+  email = "info@westcoastbjjcamp.se"
+  phone = "+46 72 294 93 39"
+  logo = "/images/westcoastlogo.webp"
+  hero_logo = "/images/westcoast-logo-transparent.png"
+
+[menu]
+  [[menu.main]]
+    name = "Hem"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Instruktörer"
+    url = "/instructors/"
+    weight = 2
+  [[menu.main]]
+    name = "Priser"
+    url = "/pricing/"
+    weight = 3
+  [[menu.main]]
+    name = "Schema"
+    url = "/schedule/"
+    weight = 4
+  [[menu.main]]
+    name = "Galleri"
+    url = "/gallery/"
+    weight = 5
+  [[menu.main]]
+    name = "Bokning"
+    url = "/booking/"
+    weight = 6
+  [[menu.main]]
+    name = "FAQ"
+    url = "/faq/"
+    weight = 7
+  [[menu.main]]
+    name = "Om oss"
+    url = "/about/"
+    weight = 8
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[permalinks]
+  pages = "/:slug/"

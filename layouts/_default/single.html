@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ if .Params.page_header }}
+<section class="page-header">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description | default .Summary }}</p>
+    </div>
+</section>
+{{ end }}
+
+{{ .Content }}
+{{ end }}

@@ -1,0 +1,5 @@
+baseURL: 'https://westcoastbjjcamp.se'
+languageCode: 'sv-SE'
+title: 'West Coast BJJ Camp'
+params:
+  description: 'Brazilian Jiu-Jitsu träning vid Sveriges västkust'

@@ -1,0 +1,25 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>West Coast BJJ Camp</h3>
+                <p>Brazilian Jiu-Jitsu träning vid Sveriges västkust</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p>📧 {{ .Site.Params.email }}</p>
+                <p>📱 {{ .Site.Params.phone }}</p>
+            </div>
+            <div class="footer-section">
+                <h4>Snabblänkar</h4>
+                <a href="{{ "/booking/" | relURL }}">Bokning</a>
+                <a href="{{ "/pricing/" | relURL }}">Priser</a>
+                <a href="{{ "/faq/" | relURL }}">FAQ</a>
+                <a href="{{ "/about/" | relURL }}">Om oss</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ now.Year }} West Coast BJJ Camp. Alla rättigheter förbehållna.</p>
+        </div>
+    </div>
+</footer>

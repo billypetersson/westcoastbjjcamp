@@ -1,0 +1,100 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Välkommen till West Coast BJJ Camp</h1>
+            <p class="hero-subtitle">Träna Brazilian Jiu-Jitsu vid Sveriges vackra västkust i Strömstad</p>
+            <p class="hero-description">
+                Upplev intensiv träning med erfarna instruktörer, bygga nya vänskaper och 
+                utveckla din BJJ-teknik i en inspirerande miljö vid havet.
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ "/booking/" | relURL }}" class="btn btn-primary btn-large">Boka din plats nu →</a>
+                <a href="{{ "/pricing/" | relURL }}" class="btn btn-secondary">Se priser</a>
+            </div>
+        </div>
+        <div class="hero-logo">
+            <img src="{{ "/images/westcoast-logo-transparent.png" | relURL }}" alt="West Coast BJJ Camp Logo" class="hero-logo-img">
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Varför välja West Coast BJJ Camp?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🥋</div>
+                <h3>Expertinstruktörer</h3>
+                <p>Träna med erfarna BJJ-instruktörer från hela Sverige och utomlands</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌊</div>
+                <h3>Unik plats</h3>
+                <p>Strömstad vid västkusten erbjuder en vacker och inspirerande träningsmiljö</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Gemenskap</h3>
+                <p>Träffa och träna med BJJ-utövare från olika klubbar och bakgrunder</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Utveckling</h3>
+                <p>Intensiv träning som tar din BJJ till nästa nivå</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="camp-info">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 Plats</h3>
+                <p><strong>Strömstad, Sverige</strong></p>
+                <p>En av Sveriges vackraste kustorter vid gränsen till Norge</p>
+            </div>
+            <div class="info-card">
+                <h3>📅 Datum</h3>
+                <p><strong>12-14 Juli 2024</strong></p>
+                <p>3 dagar intensiv BJJ-träning och gemenskap</p>
+            </div>
+            <div class="info-card">
+                <h3>🎯 För vem</h3>
+                <p><strong>Alla nivåer välkomna</strong></p>
+                <p>Från nybörjare till avancerade utövare</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-highlight">
+    <div class="container">
+        <div class="contact-content">
+            <h2>Har du frågor?</h2>
+            <p>Kontakta oss för mer information om West Coast BJJ Camp</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <a href="tel:{{ .Site.Params.phone }}">{{ .Site.Params.phone }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Redo att gå med?</h2>
+            <p>Begränsat antal platser. Boka din plats idag för att säkra din deltagande i West Coast BJJ Camp.</p>
+            <a href="{{ "/booking/" | relURL }}" class="btn btn-primary btn-large">Boka din plats nu</a>
+        </div>
+    </div>
+</section>
+{{ end }}
