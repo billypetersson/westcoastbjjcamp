@@ -1,0 +1,29 @@
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="{{ "/" | relURL }}">
+                    <img src="{{ "/images/westcoastlogo.webp" | relURL }}" alt="West Coast BJJ Camp Logo" class="logo-img">
+                    <h1>West Coast BJJ Camp</h1>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                    {{ $active := "" }}
+                    {{ if eq .URL "/" }}
+                        {{ if $currentPage.IsHome }}{{ $active = " active" }}{{ end }}
+                    {{ else }}
+                        {{ if eq $currentPage.Section (strings.TrimPrefix "/" (strings.TrimSuffix "/" .URL)) }}{{ $active = " active" }}{{ end }}
+                    {{ end }}
+                    <a href="{{ .URL | relURL }}" class="nav-link{{ $active }}">{{ .Name }}</a>
+                {{ end }}
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
